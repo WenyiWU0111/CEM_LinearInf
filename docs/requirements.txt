@@ -1,0 +1,15 @@
+matplotlib
+numpy
+pandas
+scikit_learn
+scipy
+seaborn
+setuptools
+statsmodels
+Sphinx
+nbsphinx
+ipython
+numpydoc
+sphinx_theme_pd
+sphinx_autodoc_typehints
+press
