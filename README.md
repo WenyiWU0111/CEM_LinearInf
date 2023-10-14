@@ -7,7 +7,7 @@
 
 Please check out the following sections for further information, including how to install and use this package, and related references.
 
-- Documentation: []()
+- Documentation: [https://cem-linearinf.readthedocs.io/en/latest/](https://cem-linearinf.readthedocs.io/en/latest/)
 - GitHub repo: [https://github.com/WenyiWU0111/CEM_LinearInf.git](https://github.com/WenyiWU0111/CEM_LinearInf.git)
 - PyPi: []()
 - Open Source: [MIT license](https://opensource.org/licenses/MIT)
@@ -25,7 +25,7 @@ pip install CEM_LinearInf
 
 - [CEM Notebook Example - Simulated Linear Dataset](CEM_Notebook_Example_Lalonde_Dataset.ipynb)
 - [CEM Notebook Example - Lalonde Dataset](CEM_Notebook_Example_Lalonde_Dataset.ipynb)
-- [Tutorial]()
+- [Tutorial](https://cem-linearinf.readthedocs.io/en/latest/tutorial.html)
 
 ## ✏️ Functions
 
