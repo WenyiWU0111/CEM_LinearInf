@@ -8,7 +8,7 @@
 Please check out the following sections for further information, including how to install and use this package, and related references.
 
 - Documentation: []()
-- GitHub repo: []()
+- GitHub repo: [https://github.com/WenyiWU0111/CEM_LinearInf.git](https://github.com/WenyiWU0111/CEM_LinearInf.git)
 - PyPi: []()
 - Open Source: [MIT license](https://opensource.org/licenses/MIT)
 
