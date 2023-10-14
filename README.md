@@ -20,10 +20,6 @@ Install `CEM_LinearInf` using ``pip``
 pip install CEM_LinearInf
 ```
 
-Install the latest version in Github:
-```bash
-pip install git+
-```
 
 ## 📖 Examples and notebooks
 
