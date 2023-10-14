@@ -1,0 +1,244 @@
+Coarsened Exact Matching
+==========================
+
+💡 Model
+----------
+
+
+**CEM** is a nonparametric data preprocessing algorithm in causal inference that has a broad applicability to **observational data**. 
+With CEM, you can construct your observational data into 'quasi' experimental data easily, removing the baseline differences and making your 
+treated and control groups comparable.
+
+When conducting CEM, each sample is represented by confounder properties coarsened to discrete values using a coarsening or binning strategy. 
+Thus each sample is given a “**BIN Signature**” and samples with **exactly the same** signature will be matched in the same group :math:`s \in S`.
+We denote the treated units by :math:`T^s` in group :math:`s` and the number of treated units in the group by :math:`m_{T}^s`.
+Similarly for the control units, that is, :math:`C^s` and :math:`m_{C}^s`. :math:`m_{T}` and :math:`m_{C}` are the number of matched units for treated and controls respectively.
+To each matched unit :math:`i` in stratum :math:`s`, CEM assigns the following weights, and this weight will be used estimating the average treatment effect (:ref:`Iacus, King, & Porro, 2012<cem_ref2>`).
+
+.. math::
+    w_{i} = \begin{cases}
+    1, i \in T^s  \\ 
+    \frac{m_{C}}{m_{T}} \frac{m_{T}^s}{m_{C}^s} , i \in C^s
+    \end{cases}
+
+The matched exactly balanced data indicates that there is no need to control for X, as it is irelevant to the treatment variable. 
+Therefore, estimating the causal effect can be done simply by calculating the difference in means using the matched data.
+However, if your matched data is approximately balanced, it is necessary to control for X with a model (:ref:`Ho, Imai, King, & Stuart 2007<cem_ref1>`). 
+More details can be found in the :ref:`inference <tuto_inf>` part, and you can check :ref:`the next section<tuto_balance>` about how to measure the balance of your data. 
+
+**Asumptions**
+
+- Conditioncal on :math:`X`, the treatment variable is independent with the potential outcomes.
+
+.. math::
+    T_{i} \perp\!\!\!\perp {(Y_i(0), Y_i(1))} \mid X 
+
+
+**Advantages**
+
+- Easy to understand and great interpretability.
+- No assumptions about the data generation process.
+- Mitigating the model dependency, bias, and inefficiency of your treatment effect estimation (:ref:`Ho, Imai, King, & Stuart 2007<cem_ref1>`).
+
+
+**Limitations**
+
+- There might be omitted confounders, which can reduce the precision of estimated treatment effect, and even gives a contradictory conclusion. This effect could be assessed with :ref:`sensitivity analysis <tuto_inf>`.
+
+- Choosing the coarsening setting appropriately is the primary issue to consider when running CEM (:ref:`Iacus, King, & Porro, 2012<cem_ref2>`). You can set the coarsening setting manually based on your understanding of your covariates, or use the coarsening parameters fine-tune function in this package.
+
+- CEM possesses the characteristic of having a monotonic imbalance bound property, making it one of the simplest methods. However, it is also possible to enhance and customize other methods for specific applications by leveraging established techniques within each CEM group (:ref:`Iacus, King, & Porro, 2012<cem_ref2>`). In this package, you can conduct 1-k matching based on the CEM. Details can be found in the :ref:`folowing tutorial <1-k_match>`.
+
+
+
+
+⌨️ Example
+------------
+
+
+**Import and Data Preperation**
+
+First, you should import the class ``cem`` and the function ``data_generation`` from our package ``CEM_LinearInf``.
+
+.. code-block:: python
+
+    from CEM_LinearInf.cem import cem
+    from CEM_LinearInf.data_generation import data_generation
+
+You can generate the dataset with ``data_generation`` function directly, in which you can set the sample size, treatment probability, average treatment effect, and 
+parameters for covariates and confounders. Please note that here the result variable :math:`Y` is linearly dependent with control variables :math:`X` and treatment variable :math:`T`.
+
+.. code-block:: python
+
+    df = data_generation(n=10000, # sample size
+                     p=0.2,   # P(T=1)
+                     att=3,   # True average treatment effect on treated
+                     x_cont=[0,1,6], # Generate 6 continuous variables X following the normal distribution N(0, 1).
+                     x_cate=[2, 4, 4], # Generate 3 catigorical variables X with 2, 4, 4 categories respectively.
+                     con_x=[(0, 3), (1, -2), (2, 1), (6, 2.5), (8, 1.5)] # X1, X2, X3, X7, X9 are confounders and
+                     )                                                   # their effect on T are 3, -2, 1, 2.5, 1.5 resectively.
+
+    df.head()
+
+.. csv-table:: df
+   :file: data_head.csv
+   :header-rows: 1
+
+**Fit CEM Model**
+
+Then you should create your own `cem` , giving it your dataframe, column names of confounders, continuous confounders, result variable **Y** and treatment variable **T**.
+
+.. code-block:: python
+
+    confounder_cols = ['X1','X2','X3','X7', 'X9']
+    cont_confounder_cols = ['X1','X2','X3']
+    my_cem = cem(df = df, # dataframe to be matched
+                confounder_cols = confounder_cols, # list of confounders' column names
+                cont_confounder_cols = cont_confounder_cols, # list of continuous confounders' column names
+                col_y = 'Y', # column name of result variable
+                col_t = 'T' # column name of treatment variable
+                )
+
+cem could give you the summary of your dataset.
+
+.. code-block:: python
+
+    my_cem.summary()
+
+.. code-block:: none
+
+    Descriptive Statistics of the dataframe:
+
+                    X1           X2           X3           X4           X5  \
+    count  10,000.0000  10,000.0000  10,000.0000  10,000.0000  10,000.0000   
+    mean       -0.0160       0.0213      -0.0013       0.0001      -0.0144   
+    std         0.9963       1.0065       0.9986       0.9955       0.9841   
+    min        -3.5670      -4.2668      -4.7132      -4.0806      -3.4952   
+    25%        -0.6865      -0.6595      -0.6691      -0.6720      -0.6779   
+    50%        -0.0231       0.0113      -0.0048      -0.0038      -0.0129   
+    75%         0.6568       0.7026       0.6661       0.6730       0.6519   
+    max         3.6061       3.7632       4.1706       3.9502       3.7476   
+
+                    X6           X7           X8           X9            T  \
+    count  10,000.0000  10,000.0000  10,000.0000  10,000.0000  10,000.0000   
+    mean       -0.0016       0.4954       1.5062       1.4953       0.1533   
+    std         1.0056       0.5000       1.1230       1.1172       0.3603   
+    min        -3.8068       0.0000       0.0000       0.0000       0.0000   
+    25%        -0.6853       0.0000       1.0000       0.0000       0.0000   
+    50%        -0.0034       0.0000       1.0000       2.0000       0.0000   
+    75%         0.6783       1.0000       3.0000       2.0000       0.0000   
+    max         4.5216       1.0000       3.0000       3.0000       1.0000   
+
+                    Y  
+    count  10,000.0000  
+    mean        6.4324  
+    std         9.5579  
+    min       -29.9051  
+    25%        -0.0168  
+    50%         6.3347  
+    75%        12.9615  
+    max        43.8527  
+
+    Control group vs. Experimental group 
+
+    n_samples    mean_Y
+    0       8467  6.277839
+    1       1533  7.286350
+
+    T-test of Experimental group Y and Control group Y
+
+    att estimate (p-value): 1.0085(0.0001)
+    The difference between Experimental group Y and Control group Y is significant, and the difference is 1.0085.
+
+Then we can try matching your dataset using `match` function with default parameters.  
+
+.. code-block:: python
+
+    my_cem.match()
+
+After the default coarsened exact matching, 82.84% treated samples are matched.
+
+.. code-block:: none 
+
+    Matching result
+
+        all  matched  propotion
+    0  8467     3338     0.3942
+    1  1533     1270     0.8284
+
+Moreover, we can customize our coarsen schema to optimize our matching result. The matched result with a suitable coarsen schema will have smaller L1 imbalance score and more matched samples.  
+
+* **Method 1:**
+    You can input a schema dictionary indicating how to coarsen each continuous confounders X if you have a thorough understanding on your dataset.
+
+    The following cutting method can be chosen.
+
+    * `cut`: Bin values into discrete intervals **with the same length**.
+    * `qcut`: Discretize variable into **equal-sized buckets** based on rank or based on sample quantiles.
+    * `struges`: Bin values into :math:`k` discrete intervals with the same length according to the :math:`Sturges' rule`.
+
+.. math::
+
+    k = \lceil log_2n + 1 \rceil
+
+.. code-block:: python
+
+    my_cem.match(schema = {'cut': 4})
+
+
+* **Method 2:**
+    You can also use the ``tunning_schema`` function to help you tune the coarsen schema automatically.  
+
+.. code-block:: python
+
+    l1, schema = my_cem.tunning_schema(step = 4)
+    my_cem.match(schema = schema)
+
+.. code-block:: none 
+
+    Matching result
+
+        all  matched  propotion
+    0  8467     5763     0.6806
+    1  1533     1431     0.9335
+
+**CEM combined with other Matching methods**
+
+.. _1-k_match:
+
+It has been declared that leveraging established techniques within each CEM group can further improve the in-group balance.
+Inspired by the **K Nearest Neighbor Algorithm**, in the same strata, a treated sample will be matched with :math:`k` controled samples having nearest distance or propensity score with it.
+
+.. code-block:: python 
+
+    my_cem_k2k = cem(df, confounder_cols, cont_confounder_cols)
+    my_cem_k2k.match(k2k_ratio = 1, dist = 'psm')
+    # my_cem_k2k.match(k2k_ratio = 1, dist = 'euclidean')
+    # my_cem_k2k.match(k2k_ratio = 1, dist = 'mahalanobis')
+
+.. code-block:: none 
+
+    Matching result
+
+        all  matched  propotion
+    0  8467     1270     0.1500
+    1  1533     1270     0.8284
+
+
+
+
+⭐️ Reference
+--------------
+
+.. _cem_ref1:
+
+* Ho, D., Imai, K., King, G., & Stuart, E. (2007). Matching as Nonparametric Preprocessing for Reducing Model Dependence in Parametric Causal Inference. Political Analysis, 15, 199–236. Retrieved from https://tinyurl.com/y4xtv32s 
+
+.. _cem_ref3:
+
+* Ho D, Imai K, King G, Stuart E (2011). “MatchIt: Nonparametric Preprocessing for Parametric Causal Inference.” Journal of Statistical Software, 42(8), 1–28. https://doi.org/10.18637/jss.v042.i08.
+
+.. _cem_ref2:
+
+* Iacus, S. M., King, G., & Porro, G. (2012). Causal Inference Without Balance Checking: Coarsened Exact Matching. Political Analysis, 20(1), 1–24. Retrieved from https://tinyurl.com/yydq5enf 
+
