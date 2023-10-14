@@ -29,25 +29,25 @@ pip install CEM_LinearInf
 
 ## ✏️ Functions
 
-* Coarsened Exact Matching (CEM)
+### Coarsened Exact Matching (CEM)
 
    CEM is a data preprocessing algorithm in causal inference which can construct your observational data into 'quasi' experimental data easily, mitigating the model dependency, bias, and inefficiency of your estimation of the treatment effect (Ho, Imai, King, & Stuart 2007).
    
    Different coarsen methods and 1 to k matching method based on different distances are supported.
 
-* Balance Checking
+### Balance Checking
 
    When we finish the coarsened exact matching, it is necessary to evaluate the quality of the matching with balance checking methods. When the covariate balance is achieved, the resulting effect estimate is less sensitive to model misspecification and ideally close to true treatment effect (Greifer, 2023).  
 
    Different methods including L1 imbalance score, SMD, KS score, density plot, and empirical cdf plot are supported.
 
-* Treatment Effect Inference
+### Treatment Effect Inference
 
    After conducting the coarsened exact matching and imbalance checking, we can estimate the average treatment effect **ATT** and heterogeneous treatment effect **HTE** with statistical inference methods.
 
    **Linear regression** models including OLS, Ridge, and Lasso are supported here.
 
-* Sensitivity Analysis
+### Sensitivity Analysis
 
    When we conduct causal inference to the observational data, the most important assumption is that there is no unobserved confounding. Therefore, after finishing the treatment effect estimation, investigators are advised to conduct the sensitivity analysis to **examine how fragile a result is against the possibility of unobserved confounders** (Cinelli, Hazlett, 2020).  
    
