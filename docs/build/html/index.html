@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>CEM-LinearInf’s Documentation</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Usage" href="usage.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="#" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#cem-linearinf-s-documentation">Catalogue</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#functions">✏️ functions</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#contents">📖 contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#reference">⭐️ reference</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+    
+    <li>CEM-LinearInf’s Documentation</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="next">
+    <a href="usage.html"
+       title="next chapter">Usage →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="cem-linearinf-s-documentation">
+<h1>CEM-LinearInf’s Documentation<a class="headerlink" href="#cem-linearinf-s-documentation" title="Permalink to this heading">¶</a></h1>
+<div style="border-top: 4px solid gray;"></div><p><strong>CEM-LinearInf</strong> is a Python package for linear causal inference, which can help you implement the whole process of causal inference easily.</p>
+<p>Please check out the following sections for further information, including how to
+<a class="reference internal" href="usage.html#installation"><span class="std std-ref">install</span></a> and <a class="reference internal" href="tutorial.html#id1"><span class="std std-ref">use</span></a> this package, and <a class="reference internal" href="#references"><span class="std std-ref">related references</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please be aware that certain functions presented here are essentially a Python adaptation of the original R-package, and all referenced R-packages are appropriately acknowledged in the <a class="reference internal" href="#references"><span class="std std-ref">references</span></a>.
+I make no claim to originality and thank the authors for their research.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<section id="functions">
+<h2>✏️ Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<ul>
+<li><dl>
+<dt>Coarsened Exact Matching (CEM)</dt><dd><p>CEM is a data preprocessing algorithm in causal inference which can construct your observational data into ‘quasi’ experimental data easily, mitigating the model dependency, bias, and inefficiency of your estimation of the treatment effect (<a class="reference internal" href="#ref3"><span class="std std-ref">Ho, Imai, King, &amp; Stuart 2007</span></a>).</p>
+<p>Different coarsen methods and 1 to k matching method based on different distances are supported.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Balance Checking</dt><dd><p>When we finish the coarsened exact matching, it is necessary to evaluate the quality of the matching with balance checking methods. When the covariate balance is achieved, the resulting effect estimate is less sensitive to model misspecification and ideally close to true treatment effect (<a class="reference internal" href="#ref6"><span class="std std-ref">Greifer, 2023</span></a>).</p>
+<p>Different methods including L1 imbalance score, SMD, KS score, density plot, and empirical cdf plot are supported.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Treatment Effect Inference</dt><dd><p>After conducting the coarsened exact matching and imbalance checking, we can estimate the average treatment effect <strong>ATT</strong> and heterogeneous treatment effect <strong>HTE</strong> with statistical inference methods.</p>
+<p><strong>Linear regression</strong> models including OLS, Ridge, and Lasso are supported here.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Sensitivity Analysis</dt><dd><p>When we conduct causal inference to the observational data, the most important assumption is that there is no unobserved confounding. Therefore, after finishing the treatment effect estimation, investigators are advised to conduct the sensitivity analysis to <strong>examine how fragile a result is against the possibility of unobserved confounders</strong> (<a class="reference internal" href="#ref2"><span class="std std-ref">Cinelli, Hazlett, 2020</span></a>).</p>
+<p>In other words, we should examine how strong the effect of unobserved confounders should be to erase the treatment effect estimated.</p>
+<p><strong>Omitted variable bias</strong> based sensitivity analysis method (<a class="reference internal" href="#ref2"><span class="std std-ref">Cinelli, Hazlett, 2020</span></a>) and <strong>Wilcoxon’s  signed rank test</strong> based sensitivity analysis method (<a class="reference internal" href="#ref13"><span class="std std-ref">Rosenbaum, 2015</span></a>) are supported here.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="contents">
+<h2>📖 Contents<a class="headerlink" href="#contents" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#dependensies">Dependensies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#contents">Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tuto_cem.html">Coarsened Exact Matching</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tuto_cem.html#model">💡 Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_cem.html#example">⌨️ Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_cem.html#reference">⭐️ Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tuto_balance.html">Balance Checking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tuto_balance.html#l1-imbalance-score">1️⃣ L1 imbalance score</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_balance.html#standardized-mean-difference">2️⃣ Standardized Mean Difference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_balance.html#kolmogorov-smirnov-statistics">3️⃣ Kolmogorov-Smirnov Statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_balance.html#density-plot">4️⃣ Density Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_balance.html#empirical-cumulative-density-plot">5️⃣ Empirical Cumulative Density Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_balance.html#reference">⭐️ Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tuto_inf.html">Inference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tuto_inf.html#model">💡 Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_inf.html#example">⌨️ Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_inf.html#reference">⭐️ Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tuto_sen.html">Sensitivity Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tuto_sen.html#ovb">1️⃣ OVB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_sen.html#wilcoxon-s-signed-rank-test">2️⃣ Wilcoxon’s  signed rank test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuto_sen.html#reference">⭐️ Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="example_simu.html">🔖 CEM Notebook Example - Simulated Linear Dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="example_simu.html#data-preperation">1. Data preperation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_simu.html#coarsened-exact-matching-cem">2. Coarsened Exact Matching (CEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_simu.html#balance-checking">3. Balance Checking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_simu.html#treatment-effect-inference">4. Treatment Effect Inference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_simu.html#sensitivity-analysis">5. Sensitivity Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_simu.html#omitted-variable-bias-based-sensitivity-analysis">5.1 Omitted variable bias based sensitivity analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_simu.html#wilcoxon-s-signed-rank-test-based-sensitivity-analysis">5.2 Wilcoxon’s signed rank test based sensitivity analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="example_real.html">🔖 CEM Notebook Example - Lalonde Dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="example_real.html#data-preperation">1. Data preperation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_real.html#coarsened-exact-matching-cem">2. Coarsened Exact Matching (CEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_real.html#balance-checking">3. Balance Checking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_real.html#treatment-effect-inference">4. Treatment Effect Inference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_real.html#sensitivity-analysis">5. Sensitivity Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_real.html#omitted-variable-bias-based-sensitivity-analysis">5.1 Omitted variable bias based sensitivity analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example_real.html#wilcoxon-s-signed-rank-test-based-sensitivity-analysis">5.2 Wilcoxon’s signed rank test based sensitivity analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_cem.html">Coarsened Exact Matching</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.summary"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.cut"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.cut()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.coarsening"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.coarsening()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.weight"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.weight()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.match"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.match()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.k2k_match"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.k2k_match()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.tunning_schema"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.tunning_schema()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_balance.html">Balance Checking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_balance.html#CEM_LinearInf.balance"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.balance</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_balance.html#CEM_LinearInf.balance.balance_assessing"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.balance.balance_assessing()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_inf.html">Treatment Effect Inference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_inf.html#inference"><code class="docutils literal notranslate"><span class="pre">inference</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_inf.html#inference.linear_att"><code class="docutils literal notranslate"><span class="pre">inference.linear_att()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_inf.html#inference.weighted_linear_att"><code class="docutils literal notranslate"><span class="pre">inference.weighted_linear_att()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_inf.html#inference.linear_dml_hte"><code class="docutils literal notranslate"><span class="pre">inference.linear_dml_hte()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_sen.html">Sensitivity Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_sen.html#wilcoxon-s-signed-rank-test-based-sensitivity-analysis">Wilcoxon’s signed rank test based sensitivity analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_sen.html#wilcoxon"><code class="docutils literal notranslate"><span class="pre">wilcoxon</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="api_sen.html#wilcoxon.result"><code class="docutils literal notranslate"><span class="pre">wilcoxon.result()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_sen.html#omitted-variable-bias-based-sensitivity-analysis">Omitted variable bias based sensitivity analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_sen.html#ovb"><code class="docutils literal notranslate"><span class="pre">ovb</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="api_sen.html#ovb.plot_result"><code class="docutils literal notranslate"><span class="pre">ovb.plot_result()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="reference">
+<span id="references"></span><h2>⭐️ Reference<a class="headerlink" href="#reference" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<ul class="simple" id="ref1">
+<li><p>Abadie, A., &amp; Imbens, G. W. (2006). Large Sample Properties of Matching Estimators for Average Treatment Effects. Econometrica, 74(1), 235–267. <a class="reference external" href="https://doi.org/10.1111/j.1468-0262.2006.00655.x">https://doi.org/10.1111/j.1468-0262.2006.00655.x</a></p></li>
+</ul>
+<ul class="simple" id="ref11">
+<li><p>Chernozhukov, V., Chetverikov, D., Demirer, M., Duflo, E., Hansen, C., Newey, W., &amp; Robins, J. (2017). Double/debiased machine learning for treatment and causal parameters.</p></li>
+</ul>
+<ul class="simple" id="ref2">
+<li><p>Cinelli, C., &amp; Hazlett, C. (2020). Making Sense of Sensitivity: Extending Omitted Variable Bias. Journal of the Royal Statistical Society Series B: Statistical Methodology, 82(1), 39–67. <a class="reference external" href="https://doi.org/10.1111/rssb.12348">https://doi.org/10.1111/rssb.12348</a></p></li>
+</ul>
+<ul class="simple" id="ref12">
+<li><p>Cinelli, C., &amp; Ferwerda, J., &amp; Hazlett, C. (2020). “sensemakr: Sensitivity Analysis Tools for OLS in R and Stata.” <a class="reference external" href="https://www.researchgate.net/publication/340965014_sensemakr_Sensitivity_Analysis_Tools_for_OLS_in_R_and_Stata">https://www.researchgate.net/publication/340965014_sensemakr_Sensitivity_Analysis_Tools_for_OLS_in_R_and_Stata</a></p></li>
+</ul>
+<ul class="simple" id="ref6">
+<li><p>Greifer N (2023). cobalt: Covariate Balance Tables and Plots. <a class="reference external" href="https://github.com/ngreifer/cobalt">https://github.com/ngreifer/cobalt</a>.</p></li>
+</ul>
+<ul class="simple" id="ref3">
+<li><p>Ho, D., Imai, K., King, G., &amp; Stuart, E. (2007). Matching as Nonparametric Preprocessing for Reducing Model Dependence in Parametric Causal Inference. Political Analysis, 15, 199–236. Retrieved from <a class="reference external" href="https://tinyurl.com/y4xtv32s">https://tinyurl.com/y4xtv32s</a></p></li>
+</ul>
+<ul class="simple" id="ref14">
+<li><p>Ho D, Imai K, King G, Stuart E (2011). “MatchIt: Nonparametric Preprocessing for Parametric Causal Inference.” Journal of Statistical Software, 42(8), 1–28. <a class="reference external" href="https://doi.org/10.18637/jss.v042.i08">https://doi.org/10.18637/jss.v042.i08</a>.</p></li>
+</ul>
+<ul class="simple" id="ref4">
+<li><p>Iacus, S. M., King, G., &amp; Porro, G. (2009). CEM: Coarsened Exact Matching Software. Journal of Statistical Software, 30(9). Retrieved from <a class="reference external" href="http://gking.harvard.edu/cem">http://gking.harvard.edu/cem</a></p></li>
+</ul>
+<ul class="simple" id="ref7">
+<li><p>Iacus, S. M., King, G., and Porro, G. (2011). Multivariate Matching Methods That are Monotonic Imbalance Bounding. Journal of the American Statistical Association, 106(493), 345-361. Retrieved from <a class="reference external" href="https://tinyurl.com/y6pq3fyl">https://tinyurl.com/y6pq3fyl</a></p></li>
+</ul>
+<ul class="simple" id="ref5">
+<li><p>Iacus, S. M., King, G., &amp; Porro, G. (2012). Causal Inference Without Balance Checking: Coarsened Exact Matching. Political Analysis, 20(1), 1–24. Retrieved from <a class="reference external" href="https://tinyurl.com/yydq5enf">https://tinyurl.com/yydq5enf</a></p></li>
+</ul>
+<ul class="simple" id="ref13">
+<li><p>Rosenbaum, P. R. (2005). Sensitivity analysis in observational studies. Encyclopedia of statistics in behavioral science.</p></li>
+</ul>
+<ul class="simple" id="ref8">
+<li><p>Standardized mean difference (SMD) in causal inference. (2021, Oct 31). Retrieved from <a class="reference external" href="https://statisticaloddsandends.wordpress.com/2021/10/31/standardized-mean-difference-smd-in-causal-inference/">https://statisticaloddsandends.wordpress.com/2021/10/31/standardized-mean-difference-smd-in-causal-inference/</a></p></li>
+</ul>
+<ul class="simple" id="ref9">
+<li><p>What is the L1 imbalance measure in causal inference? (2021, Nov 25). Retrieved from <a class="reference external" href="https://statisticaloddsandends.wordpress.com/2021/11/25/what-is-the-l1-imbalance-measure-in-causal-inference/">https://statisticaloddsandends.wordpress.com/2021/11/25/what-is-the-l1-imbalance-measure-in-causal-inference/</a></p></li>
+</ul>
+<ul class="simple" id="ref10">
+<li><p>Zhang, Z., Kim, H. J., Lonjon, G., Zhu, Y., &amp; written on behalf of AME Big-Data Clinical Trial Collaborative Group (2019). Balance diagnostics after propensity score matching. Annals of translational medicine, 7(1), 16. <a class="reference external" href="https://doi.org/10.21037/atm.2018.12.10">https://doi.org/10.21037/atm.2018.12.10</a></p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="next">
+    <a href="usage.html"
+       title="next chapter">Usage →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

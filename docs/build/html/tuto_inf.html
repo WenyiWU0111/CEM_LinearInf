@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>Inference</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Sensitivity Analysis" href="tuto_sen.html" />
+  <link rel="prev" title="Balance Checking" href="tuto_balance.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#cem-linearinf-s-documentation">Catalogue</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">✏️ functions</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#reference">⭐️ reference</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="tutorial.html">Tutorial</a> &raquo;</li>
+    
+    <li>Inference</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="tuto_balance.html"
+       title="previous chapter">← Balance Checking</a>
+  </li>
+  <li class="next">
+    <a href="tuto_sen.html"
+       title="next chapter">Sensitivity Analysis →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="inference">
+<h1>Inference<a class="headerlink" href="#inference" title="Permalink to this heading">¶</a></h1>
+<section id="model">
+<h2>💡 Model<a class="headerlink" href="#model" title="Permalink to this heading">¶</a></h2>
+<p>It is important to note that matching methods serve as algorithms for preprocessing data rather than statistical estimators.
+Therefore, once the data has been preprocessed, an estimator of some sort needs to be applied in order to draw causal inferences (<a class="reference internal" href="#inf-ref2"><span class="std std-ref">Iacus, King, &amp; Porro, 2012</span></a>).</p>
+<p>The most frequently selected method following matching has been a basic difference in means,
+neglecting any controls for potential confounding variables. However, unless matching is perfect, conventional parametric approaches have the potential to significantly enhance causal inferences even after the matching process (<a class="reference internal" href="#inf-ref1"><span class="std std-ref">Ho, Imai, King, &amp; Stuart 2007</span></a>).</p>
+<p>Here we provide linear regression methods and linear double machine learning methods for estimating the <strong>average treatment effect ATT</strong> and <strong>heterogeneous treatment effect HTE</strong>.</p>
+<ul class="simple">
+<li><p>Ordinal least square linear regression method <code class="docutils literal notranslate"><span class="pre">linear_att</span></code> and weighted least square linear regression method <code class="docutils literal notranslate"><span class="pre">weighted_linear_att</span></code> are provided for the ATT estimation.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[Y = \hat{\theta}T + \hat{\beta}X + ϵ, \widehat{ATT} = \hat{\theta}\]</div>
+<ul class="simple">
+<li><p>Linear double machine learning method <code class="docutils literal notranslate"><span class="pre">linear_dml_hte</span></code> is provided for the HTE estimation and conditional average treatment effect estimation CATE. This method was proposed by <a class="reference internal" href="#inf-ref3"><span class="std std-ref">Chernozhukov et al. in 2017</span></a>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}Y^{\bot X} = Y - \hat{\beta_{1}}X\\T^{\bot X} = T - \hat{\beta_{2}}X\\Y_i^{\bot X} = \widehat{\theta(X_i)}T^{\bot X} + ϵ\\\widehat{HTE} = \widehat{\theta(X_i)}\\\widehat{CATE} = E{\widehat{\theta(X_i)}}\end{aligned}\end{align} \]</div>
+</section>
+<section id="example">
+<h2>⌨️ Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
+<p>Firstly you should create your own <code class="docutils literal notranslate"><span class="pre">inference</span></code> instance, giving it your matched dataframe,  column names of result variable <span class="math notranslate nohighlight">\(Y\)</span>, treatment variable <span class="math notranslate nohighlight">\(T\)</span>, control variables <span class="math notranslate nohighlight">\(X\)</span>, and confounders.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">CEM_LinearInf.inference</span> <span class="kn">import</span> <span class="n">inference</span>
+
+<span class="n">my_inf</span> <span class="o">=</span> <span class="n">inference</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">matched_df</span><span class="p">,</span> <span class="c1"># matched dataframe</span>
+               <span class="n">col_y</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="c1"># column name of result variable</span>
+               <span class="n">col_t</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="c1"># column name of treatment variable</span>
+               <span class="n">col_x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X4&#39;</span><span class="p">,</span> <span class="s1">&#39;X5&#39;</span><span class="p">,</span> <span class="s1">&#39;X6&#39;</span><span class="p">,</span> <span class="s1">&#39;X8&#39;</span><span class="p">],</span> <span class="c1"># list of column names of control variables, please be noted that confounders should not be included in this list</span>
+               <span class="n">confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">confounder_cols</span><span class="p">)</span> <span class="c1"># list of column names of confounders</span>
+</pre></div>
+</div>
+<p><strong>ATT Estimation</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#att = my_inf.linear_att()</span>
+<span class="n">att</span> <span class="o">=</span> <span class="n">my_inf</span><span class="o">.</span><span class="n">weighted_linear_att</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;att: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">att</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                            WLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.704
+Model:                            WLS   Adj. R-squared:                  0.704
+Method:                 Least Squares   F-statistic:                     3420.
+Date:                Fri, 21 Jul 2023   Prob (F-statistic):               0.00
+Time:                        10:55:56   Log-Likelihood:                -22394.
+No. Observations:                7194   AIC:                         4.480e+04
+Df Residuals:                    7188   BIC:                         4.484e+04
+Df Model:                           5
+Covariance Type:            nonrobust
+==============================================================================
+                coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -2.5359      0.102    -24.891      0.000      -2.736      -2.336
+T              2.8786      0.146     19.774      0.000       2.593       3.164
+X4            -2.6487      0.059    -45.124      0.000      -2.764      -2.534
+X5             3.6880      0.059     62.155      0.000       3.572       3.804
+X6             3.1113      0.058     53.891      0.000       2.998       3.225
+X8             4.7185      0.052     90.623      0.000       4.616       4.821
+==============================================================================
+Omnibus:                      481.185   Durbin-Watson:                   1.976
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1254.094
+Skew:                          -0.383   Prob(JB):                    4.75e-273
+Kurtosis:                       4.896   Cond. No.                         5.36
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+att: 2.8786
+</pre></div>
+</div>
+<p><strong>HTE Estimation</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cate</span><span class="p">,</span> <span class="n">hte</span><span class="p">,</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">my_inf</span><span class="o">.</span><span class="n">linear_dml_hte</span><span class="p">()</span>
+<span class="c1">#cate, hte, r2 = my_inf.linear_dml_hte(final_model = &#39;lasso&#39;)</span>
+<span class="c1">#cate, hte, r2 = my_inf.linear_dml_hte(final_model = &#39;ridge&#39;)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;cate: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">cate</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, r2:</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cate: 3.0594, r2:0.0007
+</pre></div>
+</div>
+<p><strong>Result Comparision</strong></p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Result Table</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>True ATT</p></th>
+<th class="head"><p>Diff in Mean</p></th>
+<th class="head"><p>linear_att</p></th>
+<th class="head"><p>weighted_linear_att</p></th>
+<th class="head"><p>linear_dml_hte</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Before Match</p></td>
+<td><p>3.0</p></td>
+<td><p>1.0085</p></td>
+<td><p>0.9117</p></td>
+<td><p>0.9117</p></td>
+<td><p>3.06</p></td>
+</tr>
+<tr class="row-odd"><td><p>After Match</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2.5425</p></td>
+<td><p>2.8786</p></td>
+<td><p>3.0594</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reference">
+<h2>⭐️ Reference<a class="headerlink" href="#reference" title="Permalink to this heading">¶</a></h2>
+<ul class="simple" id="inf-ref3">
+<li><p>Chernozhukov, V., Chetverikov, D., Demirer, M., Duflo, E., Hansen, C., Newey, W., &amp; Robins, J. (2017). Double/debiased machine learning for treatment and causal parameters.</p></li>
+</ul>
+<ul class="simple" id="inf-ref1">
+<li><p>Daniel Ho, Kosuke Imai, Gary King, and Elizabeth Stuart. (2007). “Matching as Nonparametric Preprocessing for Reducing Model Dependence in Parametric Causal Inference.” Political Analysis, 15, Pp. 199–236. Copy at <a class="reference external" href="https://tinyurl.com/y4xtv32s">https://tinyurl.com/y4xtv32s</a></p></li>
+</ul>
+<ul class="simple" id="inf-ref2">
+<li><p>Stefano M. Iacus, Gary King, and Giuseppe Porro. (2012). “Causal Inference Without Balance Checking: Coarsened Exact Matching.” Political Analysis, 20, 1, Pp. 1–24. Website Copy at <a class="reference external" href="https://tinyurl.com/yydq5enf">https://tinyurl.com/yydq5enf</a></p></li>
+</ul>
+<div class="toctree-wrapper compound" id="tuto-inf">
+</div>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="tuto_balance.html"
+       title="previous chapter">← Balance Checking</a>
+  </li>
+  <li class="next">
+    <a href="tuto_sen.html"
+       title="next chapter">Sensitivity Analysis →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

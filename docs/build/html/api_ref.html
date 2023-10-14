@@ -1,0 +1,646 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
+        <title>API Reference - CEM_LinearInf 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">CEM_LinearInf 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">CEM_LinearInf 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_cem.html">API Reference</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h1>
+<section id="cem">
+<h2>cem<a class="headerlink" href="#cem" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">CEM_LinearInf.</span></span><span class="sig-name descname"><span class="pre">cem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cont_confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'T'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem" title="Link to this definition">#</a></dt>
+<dd><p>Class of Coarsened Exact Matching (CEM).</p>
+<p>CEM is a data preprocessing algorithm in causal inference that has broad applicability to observational data.
+With CEM, you can construct your observational data into ‘quasi’ experimental data easily, mitigating the model dependency, bias, and inefficiency of your estimation of the treatment effect (King and Zeng 2006; Ho, Imai, King, and Stuart 2007; Iacus et al. 2008).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.Dataframe</em>) – The dataframe you want to summarize.</p></li>
+<li><p><strong>confounder_cols</strong> (<em>list</em>) – The column names of confounders among all variables X.</p></li>
+<li><p><strong>cont_confounder_cols</strong> (<em>list</em>) – The column names of all continuous variables among confounders.</p></li>
+<li><p><strong>col_y</strong> (<em>string</em>) – The column name of result Y in your dataframe. If not specified, it would be “Y”.</p></li>
+<li><p><strong>col_t</strong> (<em>string</em>) – The column name of treatment T in your dataframe. If not specified, it would be “T”.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.summary" title="Link to this definition">#</a></dt>
+<dd><p>Method for generating the summary of data, return the descriptive statistics result of the dataframe
+and the T-test result of Experimental group Y and Control group Y.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.cut">
+<span class="sig-name descname"><span class="pre">cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span> <span class="pre">or</span> <span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.cut" title="Link to this definition">#</a></dt>
+<dd><p>Method for cutting a continuous confounder X into discrete bins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>col</strong> (<em>pd.Series</em>) – Continuous confounder X to be coarsened.</p></li>
+<li><p><strong>func</strong> (<em>str</em>) – <p>Cutting function to be used. The following functions can be chosen.</p>
+<p>’cut’: Bin values into discrete intervals with the same length.</p>
+<p>’qcut’: Discretize variable into equal-sized buckets based on rank or based on sample quantiles.</p>
+<p>’struges’: Bin values into discrete intervals with the same length k according to the Sturges’ rule.</p>
+</p></li>
+<li><p><strong>param</strong> (<em>int</em><em> or </em><em>list</em><em> (</em><em>optional</em><em>)</em>) – <p>When the method is ‘cut’, it’s a number of bins or a list of bins’ edges;</p>
+<p>When the method is ‘qcut’, it’s a number of quantiles or a list of quantiles, e.g. [0, .25, .5, .75, 1.] for quartiles.</p>
+<p>When the method is ‘struges’, there’s no need to specify the param.</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.Series: Coarsened confounder X.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.coarsening">
+<span class="sig-name descname"><span class="pre">coarsening</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coarsen_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cont_confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.coarsening" title="Link to this definition">#</a></dt>
+<dd><p>Coarsen your data based on the specified coarsen schema. If the coarsen schema is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges’ rule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coarsen_df</strong> (<em>pd.DataFrame</em>) – DataFrame to be coarsened.</p></li>
+<li><p><strong>cont_confounder_cols</strong> (<em>list</em>) – Column names of continuous confounders of the dataframe to be coarsened.</p></li>
+<li><p><strong>chema</strong> (<em>dict</em>) – <p>The dictionary specifing what coarsening method you want to use on each continuous confounder X.</p>
+<p>If it is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges’ rule.</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame: Dataframe with coarsened confounders X.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.weight">
+<span class="sig-name descname"><span class="pre">weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strata_T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.Series</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.weight" title="Link to this definition">#</a></dt>
+<dd><p>Method of computing weights for each observation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strata_T</strong> (<em>pd.Series</em>) – The treatment T of samples in one strata.</p></li>
+<li><p><strong>all_T</strong> (<em>pd.Series</em>) – The treatment T of all the matched samples.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.Series: Weights of samples in the input strata.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2k_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'euclidean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_print</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.match" title="Link to this definition">#</a></dt>
+<dd><p>Method for perform coarsened exact matching using the specified coarsening schema and return the dataframe with weights for each observation.</p>
+<p>If the coarsen schema is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges’ rule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> (<em>dict</em>) – <p>The dictionary specifing what coarsening method you want to use on each continuous confounder X.</p>
+<p>If it is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges’ rule.</p>
+</p></li>
+<li><p><strong>k2k_ratio</strong> (<em>int</em>) – <p>The ratio of # control samples / # treatment samples when we conduct k to k matching.</p>
+<p>If ‘k2k_ratio’ is 0, we don’t conduct k to k matching.</p>
+<p>Otherwise, all treatment samples in each strata will be matched with k nearest control samples.</p>
+</p></li>
+<li><p><strong>dist</strong> (<em>str</em>) – <p>The measure of distance when conducting k to k matching.</p>
+<p>You can choose among [‘euclidean’, ‘mahalanobis;, ‘psm’]. The default one is ‘euclidean’.</p>
+</p></li>
+<li><p><strong>_print</strong> (<em>bool</em>) – Whether to print the matching result.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame: The matched dataframe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.k2k_match">
+<span class="sig-name descname"><span class="pre">k2k_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2k_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.k2k_match" title="Link to this definition">#</a></dt>
+<dd><p>Method for performing k to k coarsened exact matching using the specified distance measure, and return the dataframe with weights for each observation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The coarsened dataframe to be matched.</p></li>
+<li><p><strong>confounder_cols</strong> (<em>list</em>) – The column names of all continuous variables among confounders.</p></li>
+<li><p><strong>group</strong> (<em>list</em>) – <p>The column names of variables used for grouping.</p>
+<p>It’s equivalent to dis_confounder_cols + ['<a href="#id1"><span class="problematic" id="id2">coarsen_</span></a>' + name for name in cont_confounder_cols].</p>
+</p></li>
+<li><p><strong>dist</strong> (<em>str</em>) – <p>The measure of distance when conducting k to k matching.</p>
+<p>You can choose among [‘euclidean’, ‘mahalanobis;, ‘psm’]. The default one is ‘euclidean’.</p>
+</p></li>
+<li><p><strong>k2k_ratio</strong> (<em>int</em>) – <p>The ratio of (# control samples / # treatment samples) when we conduct k to k matching.</p>
+<p>All treatment samples in each strata will be matched with k nearest control samples.</p>
+<p>The default ratio is 1.</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>pd.DataFrame: The matched dataframe.</p>
+<p>dict: A dictionary of pair index, indicating which control sample is paired with each experimantal sample.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.tunning_schema">
+<span class="sig-name descname"><span class="pre">tunning_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.tunning_schema" title="Link to this definition">#</a></dt>
+<dd><p>Method for fine-tunning continuous confounders’ binning schema automatically. The optimization objective is to have a smaller L1 score conditional on a relatively large matched sample size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>step</strong> (<em>int</em>) – <p>The step when tunning the number of bins.</p>
+<p>E.X. When ‘step’ = 4, the function will calculate all L1 scores when the number of bins equals [4, 8, …, 1 + log2(n)].</p>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>pd.DataFrame: A dataframe recording L1 scores of each schemas.</p>
+<p>dict: The optimal schema dictionary.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="CEM_LinearInf.balance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">CEM_LinearInf.</span></span><span class="sig-name descname"><span class="pre">balance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_match</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cont_confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'T'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.balance" title="Link to this definition">#</a></dt>
+<dd><p>Class of balance assessment for the matched data.</p>
+<p>When we finish the coarsened exact matching, it is necessary to evaluate the quality of the matching with imbalance checking methods.</p>
+<p>When the covariate balance is achieved, the resulting effect estimate is less sensitive to model misspecification and ideally close to true treatment effect (Greifer, 2023).</p>
+<dl>
+<dt>The imbalance checking methods provided include:</dt><dd><p>‘L1’: Calculate and return the L1 imbaance score.</p>
+<p>‘smd’: Print the standardized mean difference summary table and plots of confounders.</p>
+<p>‘ks’: Plot Kolmogorov-Smirnov Statistics of confounders before and after matching.</p>
+<p>‘density’: Return density plots of confounders before and after matching.</p>
+<p>‘ecdf’: Return empirical cumulative density plots of confounders before and after matching.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df_match</strong> (<em>pd.Dataframe</em>) – The dataframe after matching.</p></li>
+<li><p><strong>df_all</strong> (<em>pd.Dataframe</em>) – The original dataframe before matching.</p></li>
+<li><p><strong>confounder_cols</strong> (<em>list</em>) – The column names of confounders among all variables X.</p></li>
+<li><p><strong>cont_confounder_cols</strong> (<em>list</em>) – The column names of all continuous variables among confounders.</p></li>
+<li><p><strong>col_y</strong> (<em>str</em>) – The column name of result Y in your dataframe. If not specified, it would be “Y”.</p></li>
+<li><p><strong>col_t</strong> (<em>str</em>) – The column name of treatment T in your dataframe. If not specified, it would be “T”.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.balance.balance_assessing">
+<span class="sig-name descname"><span class="pre">balance_assessing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'smd'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[0.1,</span> <span class="pre">2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_print</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.balance.balance_assessing" title="Link to this definition">#</a></dt>
+<dd><p>Method for generating the imbalance assessing result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>str</em>) – <p>The method to be used for balance assessment. If it’s not specified, the default method is ‘smd’.</p>
+<blockquote>
+<div><p>’L1’: Calculate and return the L1 imbaance score.</p>
+<p>’smd’: Print the standardized mean difference summary table and plots of confounders.</p>
+<p>’ks’: Plot Kolmogorov-Smirnov Statistics of confounders before and after matching.</p>
+<p>’density’: Return density plots of confounders before and after matching.</p>
+<p>’ecdf’: Return empirical cumulative density plots of confounders before and after matching.</p>
+<p>’all’: Implement all the methods above.</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>threshold</strong> (<em>list</em>) – <p>When you choose ‘smd’ to assess the balance, you can set the balance thresholds for smd and variance ratio.</p>
+<p>If it’s not specified, the default thresholds are 0.1 and 2 for standardized mean difference and variance ratio respectively.</p>
+</p></li>
+<li><p><strong>_print</strong> (<em>bool</em>) – Whether to print the L1 score.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="inference">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'T'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#inference" title="Link to this definition">#</a></dt>
+<dd><p>Class of linear inference methods for estimating average treatment effect and heterogeneous treatment effect.</p>
+<p>After conducting the coarsened exact matching and imbalance checking, we can estimate the average treatment effect ATT and heterogeneous treatment effect HTE with statistical inference methods.</p>
+<p>Ordinal least square linear regression and weighted least square linear regression methods are provided for the ATT estimation, and the linear double machine learning method is provided for the HTE estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The dataframe after matching.</p></li>
+<li><p><strong>col_y</strong> (<em>str</em>) – The column name of dependent variable Y in your dataframe. If not specified, it would be “Y”.</p></li>
+<li><p><strong>col_t</strong> (<em>str</em>) – The column name of treatment variable T in your dataframe. If not specified, it would be “T”.</p></li>
+<li><p><strong>col_x</strong> (<em>list</em>) – <p>A list of column names of control variables X in your dataframe, which must be specified.</p>
+<p>Names of confounders should not be included in this list.</p>
+</p></li>
+<li><p><strong>confounder_cols</strong> (<em>list</em>) – A list of column names of confounders W in your dataframe, which must be specified.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="inference.linear_att">
+<span class="sig-name descname"><span class="pre">linear_att</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#inference.linear_att" title="Link to this definition">#</a></dt>
+<dd><p>Method for estimating the ATT with the ordinal least square linear model.</p>
+<p>Return the estimated ATT and print out the model summary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="inference.weighted_linear_att">
+<span class="sig-name descname"><span class="pre">weighted_linear_att</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#inference.weighted_linear_att" title="Link to this definition">#</a></dt>
+<dd><p>Method for estimating the ATT with the weighted least square linear model.</p>
+<p>Return the estimated ATT and print out the model summary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="inference.linear_dml_hte">
+<span class="sig-name descname"><span class="pre">linear_dml_hte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ols_linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#inference.linear_dml_hte" title="Link to this definition">#</a></dt>
+<dd><p>Method for estimating the HTE with the linear double machine learning method.</p>
+<p>Return the average treatment effect on treated ATT, conditional average treatment effect CATE, R2 score of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>final_model</strong> (<em>str</em>) – You can choose among [‘ols_linear’, ‘lasso’, ‘ridge’] as your second stage model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>float: conditional average treatment effect on treated CATE</p>
+<p>list: heterogeneous treatment effect HTE,</p>
+<p>float: R2 score of the model</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wilcoxon">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wilcoxon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wilcoxon" title="Link to this definition">#</a></dt>
+<dd><p>Class of wilcoxon’s signed rank test based sensitivity analysis methods.</p>
+<p>When we conduct causal inference to the observational data, the most important assumption is that there is no unobserved confounding.</p>
+<p>Therefore, after finishing the treatment effect estimation, investigators are advised to conduct the sensitivity analysis to examine how fragile a result is against the possibility of unobserved confounders (Cinelli, Hazlett, 2019).</p>
+<p>In other words, we should examine how strong the effect of unobserved confounders should be to erase the treatment effect estimated.</p>
+<p>Wilcoxon’s signed rank test based sensitivity analysis method is provided in this class. Please be noted that you can only use this method if your data is 1-1 matched.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The matched dataframe.</p></li>
+<li><p><strong>pair</strong> (<em>dict</em>) – A dictionary of pair index, indicating which control sample is paired with each experimantal sample.</p></li>
+<li><p><strong>col_y</strong> (<em>str</em>) – The column name of dependent variable Y in your dataframe. If not specified, it would be “Y”.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="wilcoxon.result">
+<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wilcoxon.result" title="Link to this definition">#</a></dt>
+<dd><p>Method to conduct the wilcoxon’s signed rank test based sensitivity analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gamma_list</strong> – list
+A list of gamma values you want to test. Gamma refers to the possibility a sample will be treated compared to its pair sample.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame: A result dataframe including p-values under each gamma value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ovb">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ovb</span></span><a class="headerlink" href="#ovb" title="Link to this definition">#</a></dt>
+<dd><p>Class of omitted variable bias based sensitivity analysis methods.</p>
+<p>When we conduct causal inference to the observational data, the most important assumption is that there is no unobserved confounding.</p>
+<p>Therefore, after finishing the treatment effect estimation, investigators are advised to conduct the sensitivity analysis to examine how fragile a result is against the possibility of unobserved confounders (Cinelli, Hazlett, 2019).</p>
+<p>In other words, we should examine how strong the effect of unobserved confounders should be to erase the treatment effect estimated.</p>
+<p>Omitted variable bias based sensitivity analysis method is provided in this class. Please be noted that you can only use this method in linear case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>col_t</strong> (<em>str</em>) – The column name of treatment variable T in your dataframe. If not specified, it would be “T”.</p></li>
+<li><p><strong>model</strong> – The regression model before fitted.</p></li>
+<li><p><strong>bench_variable</strong> (<em>str</em>) – The confounder you choose as a benchmark.</p></li>
+<li><p><strong>k_t</strong> (<em>int</em><em> or </em><em>list</em>) – R2 between treatment and the unobservable confounder / R2 between treatment and the benchmark confounder
+You can interpret as how many times the correlation between the unobservable confounder and the treatment is to
+that between the benchmark confounder and the treatment. The default value is 1.</p></li>
+<li><p><strong>k_y</strong> (<em>int</em><em> or </em><em>list</em>) – R2 between result y and the unobservable confounder / R2 between result y and the benchmark confounder
+You can interpret as how many times the correlation between the unobservable confounder and the result is to
+that between the benchmark confounder and the result. The default value is 1.</p></li>
+<li><p><strong>threshold</strong> (<em>int</em>) – The threshold level in the result plot. The default value is 0.</p></li>
+<li><p><strong>measure</strong> (<em>str</em>) – The measure you want to shown in the result plot. You can choose between ‘att’ and ‘t’. The default measure is ‘att’.
+‘att’: The estimated average treatment effect.
+‘t’: The t-value of the estimated average treatment effect.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ovb.plot_result">
+<span class="sig-name descname"><span class="pre">plot_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lim_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lim_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span> <span class="pre">or</span> <span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ovb.plot_result" title="Link to this definition">#</a></dt>
+<dd><p>Method for omiited variable bias based sensitivity analysis.</p>
+<p>The result plot presents how the averaged treatment effect or the t-value will change with different values of R2 between unobservable confounder and T and that between unobservable confounder and Y.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lim_x</strong> (<em>float</em>) – x-axis limit of the plot.</p></li>
+<li><p><strong>lim_y</strong> (<em>float</em>) – y-axis limit of the plot.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>To use CEM_LinearInf, first install it using pip:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>CEM_LinearInf
+</pre></div>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, WenyiWU
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">API Reference</a><ul>
+<li><a class="reference internal" href="#cem">cem</a><ul>
+<li><a class="reference internal" href="#CEM_LinearInf.cem"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem</span></code></a><ul>
+<li><a class="reference internal" href="#CEM_LinearInf.cem.summary"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.summary()</span></code></a></li>
+<li><a class="reference internal" href="#CEM_LinearInf.cem.cut"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.cut()</span></code></a></li>
+<li><a class="reference internal" href="#CEM_LinearInf.cem.coarsening"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.coarsening()</span></code></a></li>
+<li><a class="reference internal" href="#CEM_LinearInf.cem.weight"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.weight()</span></code></a></li>
+<li><a class="reference internal" href="#CEM_LinearInf.cem.match"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.match()</span></code></a></li>
+<li><a class="reference internal" href="#CEM_LinearInf.cem.k2k_match"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.k2k_match()</span></code></a></li>
+<li><a class="reference internal" href="#CEM_LinearInf.cem.tunning_schema"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.tunning_schema()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#CEM_LinearInf.balance"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.balance</span></code></a><ul>
+<li><a class="reference internal" href="#CEM_LinearInf.balance.balance_assessing"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.balance.balance_assessing()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inference"><code class="docutils literal notranslate"><span class="pre">inference</span></code></a><ul>
+<li><a class="reference internal" href="#inference.linear_att"><code class="docutils literal notranslate"><span class="pre">inference.linear_att()</span></code></a></li>
+<li><a class="reference internal" href="#inference.weighted_linear_att"><code class="docutils literal notranslate"><span class="pre">inference.weighted_linear_att()</span></code></a></li>
+<li><a class="reference internal" href="#inference.linear_dml_hte"><code class="docutils literal notranslate"><span class="pre">inference.linear_dml_hte()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wilcoxon"><code class="docutils literal notranslate"><span class="pre">wilcoxon</span></code></a><ul>
+<li><a class="reference internal" href="#wilcoxon.result"><code class="docutils literal notranslate"><span class="pre">wilcoxon.result()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ovb"><code class="docutils literal notranslate"><span class="pre">ovb</span></code></a><ul>
+<li><a class="reference internal" href="#ovb.plot_result"><code class="docutils literal notranslate"><span class="pre">ovb.plot_result()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>

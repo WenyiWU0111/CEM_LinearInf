@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>Balance Checking</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Inference" href="tuto_inf.html" />
+  <link rel="prev" title="Coarsened Exact Matching" href="tuto_cem.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#cem-linearinf-s-documentation">Catalogue</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">✏️ functions</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#reference">⭐️ reference</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="tutorial.html">Tutorial</a> &raquo;</li>
+    
+    <li>Balance Checking</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="tuto_cem.html"
+       title="previous chapter">← Coarsened Exact Matching</a>
+  </li>
+  <li class="next">
+    <a href="tuto_inf.html"
+       title="next chapter">Inference →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="balance-checking">
+<h1>Balance Checking<a class="headerlink" href="#balance-checking" title="Permalink to this heading">¶</a></h1>
+<p>When we finish the coarsened exact matching, it is necessary to evaluate the quality of the matching with balance checking methods.
+When the covariate balance is achieved, the resulting effect estimate is less sensitive to model misspecification and ideally close to true treatment effect (<a class="reference internal" href="#bal-ref1"><span class="std std-ref">Greifer, 2023</span></a>).
+Otherwise, you should fine-tune your coarsening schema further or consider collecting more data.</p>
+<p>The following imbalance checking methods are provded:</p>
+<section id="l1-imbalance-score">
+<h2>1️⃣ L1 imbalance score<a class="headerlink" href="#l1-imbalance-score" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p><strong>‘L1’</strong>: Calculate and return the L1 imbalance score.</p>
+<p>L1 imbalance score was introduced by <a class="reference internal" href="#bal-ref2"><span class="std std-ref">Iacus et al. (2011)</span></a>, and it is used to measure the difference between two multivariate distributions.</p>
+<div class="math notranslate nohighlight">
+\[\mathcal L_{1}(f,g) = \frac{1}{2} \sum_{l_{1}, \dots, l_{k}} \left| f_{l_{1}, \dots, l_{k}} - g_{l_{1}, \dots, l_{k}} \right|\]</div>
+<p>Here we cross-tabulate the discretized variables as <span class="math notranslate nohighlight">\(X_1, \dots, X_k\)</span> for the treated and control groups separately, and record the <span class="math notranslate nohighlight">\(k\)</span>-dimensional relative frequencies for the treated <span class="math notranslate nohighlight">\(f_{l_{1}, \dots, l_{k}}\)</span> and control <span class="math notranslate nohighlight">\(g_{l_{1}, \dots, l_{k}}\)</span> units.</p>
+<p><strong>Advantages</strong></p>
+<ul class="simple">
+<li><p>It can look at the entire joint distribution of the covariate space at the same time.</p></li>
+</ul>
+<p><strong>Limitations</strong></p>
+<ul class="simple">
+<li><p>It is dependent on the granularity of the categories.</p></li>
+<li><p>There is not an exact criterion on whether an imbalance score is good enough.</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">CEM_LinearInf.balance</span> <span class="kn">import</span> <span class="n">balance</span>
+
+<span class="n">my_balance</span> <span class="o">=</span> <span class="n">balance</span><span class="p">(</span><span class="n">df_match</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">matched_df</span><span class="p">,</span> <span class="c1"># matched dataframe</span>
+             <span class="n">df_all</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="c1"># original dataframe</span>
+             <span class="n">confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">confounder_cols</span><span class="p">,</span> <span class="c1"># list of column names of confounders</span>
+             <span class="n">cont_confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">cont_confounder_cols</span><span class="p">,</span> <span class="c1"># list of column names of continuous confounders</span>
+             <span class="n">col_y</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="c1"># column name of result variable</span>
+             <span class="n">col_t</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="c1"># column name of treatment variable</span>
+
+<span class="n">l1_before</span><span class="p">,</span> <span class="n">l1_after</span> <span class="o">=</span> <span class="n">my_balance</span><span class="o">.</span><span class="n">balance_assessing</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;L1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>L1 imbalance score before matching: 0.6316
+
+L1 imbalance score after matching: 0.2895
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="standardized-mean-difference">
+<h2>2️⃣ Standardized Mean Difference<a class="headerlink" href="#standardized-mean-difference" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p><strong>‘smd’</strong>: Print the standardized mean difference (SMD) summary table and plots of confounders.</p>
+<p>SMD is a common way to measure the balance for a single covariate <span class="math notranslate nohighlight">\(X\)</span>. It can be interpreted as the distance between the means of the two groups in terms of the standard deviation of the covariate’s distribution (<a class="reference internal" href="#bal-ref4"><span class="std std-ref">Zhang, et. al. 2019</span></a>).</p>
+<div class="math notranslate nohighlight">
+\[SMD = \frac{\bar{X}_T-\bar{X}_C}{\sqrt{(S_T^2+S_C^2)/2}}, \bar{X}_T = \frac{\sum_{i \in T}w_{i}X_{i}}{\sum_{i \in T}w_{i}}, S_{T}^2 = \frac{\sum{w_{i}}}{(\sum{w_{i}})^2 - \sum{w_{i}^2}} \sum_{i \in T}w_{i} (X_{i} - \bar{X}_T)^2\]</div>
+</li>
+</ul>
+<p><strong>Advantages</strong></p>
+<ul class="simple">
+<li><p>Helps you to identify which confounder is imbalanced.</p></li>
+</ul>
+<p><strong>Limitations</strong></p>
+<ul class="simple">
+<li><p>It is a measure of balance for a single covariate, and does not take interactions between covariates into account. It’s possible to have balance for each covariate by itself, but not have balance jointly.</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">CEM_LinearInf.balance</span> <span class="kn">import</span> <span class="n">balance</span>
+
+<span class="n">my_balance</span> <span class="o">=</span> <span class="n">balance</span><span class="p">(</span><span class="n">df_match</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">matched_df</span><span class="p">,</span> <span class="c1"># matched dataframe</span>
+             <span class="n">df_all</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="c1"># original dataframe</span>
+             <span class="n">confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">confounder_cols</span><span class="p">,</span> <span class="c1"># list of column names of confounders</span>
+             <span class="n">cont_confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">cont_confounder_cols</span><span class="p">,</span> <span class="c1"># list of column names of continuous confounders</span>
+             <span class="n">col_y</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="c1"># column name of result variable</span>
+             <span class="n">col_t</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="c1"># column name of treatment variable</span>
+
+<span class="n">my_balance</span> <span class="o">=</span> <span class="n">balance</span><span class="p">(</span><span class="n">my_cem</span><span class="o">.</span><span class="n">matched_df</span><span class="p">,</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">confounder_cols</span><span class="p">,</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">cont_confounder_cols</span><span class="p">)</span>
+<span class="n">my_balance</span><span class="o">.</span><span class="n">balance_assessing</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;smd&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SMD Result
+
+Balance measures
+
+    Treated Mean  Control Mean     SMD Variance Ratio SMD.Threshold(&lt;0.1)  \
+X1        0.1755        0.0924  0.0956         0.9329            Balanced
+X2       -0.1462       -0.1407 -0.0062         1.0103            Balanced
+X3        0.1375        0.1331  0.0049         0.9924            Balanced
+X7        0.5304        0.5304  0.0000              .            Balanced
+X9        1.6660        1.6660 -0.0000              .            Balanced
+
+Var.Threshold(&lt;2)
+X1          Balanced
+X2          Balanced
+X3          Balanced
+X7                 .
+X9                 .
+
+-------------------------
+Balance tally for SMD
+
+                    count
+SMD.Threshold(&lt;0.1)
+Balanced                 5
+
+------------------------------
+Variable with the max SMD:
+
+    SMD SMD.Threshold(&lt;0.1)
+X1  0.0956            Balanced
+
+------------------------------------
+Balance tally for Variance ratio
+
+                   count
+Var.Threshold(&lt;2)
+Balanced               3
+
+-----------------------------------------
+Variable with the max variance ratio:
+
+Variance Ratio Var.Threshold(&lt;2)
+X2         1.0103          Balanced
+
+-----------------------------------------
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/smd.png"><img alt="smd_result" class="align-center" src="_images/smd.png" style="width: 4.63529in; height: 2.97222in;" /></a>
+</section>
+<section id="kolmogorov-smirnov-statistics">
+<h2>3️⃣ Kolmogorov-Smirnov Statistics<a class="headerlink" href="#kolmogorov-smirnov-statistics" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p><strong>‘ks’</strong>: Plot Kolmogorov-Smirnov Statistics of confounders before and after matching.</p>
+<p>The Kolmogorov–Smirnov statistic quantifies a distance between the empirical distribution functions of two samples and can be used to measure the similarity of these two distributions.
+In our situation, we can use K-S score to measure the similarity between the treated group and control group.</p>
+<p><strong>Advantages</strong></p>
+<ul class="simple">
+<li><p>Helps you to identify which confounder is imbalanced.</p></li>
+</ul>
+<p><strong>Limitations</strong></p>
+<ul class="simple">
+<li><p>It is a measure of balance for a single covariate, and does not take interactions between covariates into account. It’s possible to have balance for each covariate by itself, but not have balance jointly.</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">CEM_LinearInf.balance</span> <span class="kn">import</span> <span class="n">balance</span>
+
+<span class="n">my_balance</span> <span class="o">=</span> <span class="n">balance</span><span class="p">(</span><span class="n">df_match</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">matched_df</span><span class="p">,</span> <span class="c1"># matched dataframe</span>
+             <span class="n">df_all</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="c1"># original dataframe</span>
+             <span class="n">confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">confounder_cols</span><span class="p">,</span> <span class="c1"># list of column names of confounders</span>
+             <span class="n">cont_confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">cont_confounder_cols</span><span class="p">,</span> <span class="c1"># list of column names of continuous confounders</span>
+             <span class="n">col_y</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="c1"># column name of result variable</span>
+             <span class="n">col_t</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="c1"># column name of treatment variable</span>
+
+<span class="n">my_balance</span><span class="o">.</span><span class="n">balance_assessing</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;ks&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<a class="reference internal image-reference" href="_images/ks.png"><img alt="ks_result" class="align-center" src="_images/ks.png" style="width: 4.63529in; height: 2.97222in;" /></a>
+</section>
+<section id="density-plot">
+<h2>4️⃣ Density Plot<a class="headerlink" href="#density-plot" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p><strong>‘density’</strong>: Return density plots of confounders before and after matching.</p>
+<p>The density plot can be an intuitive and helpful tool for deciding whether adjustment has yielded similar distributions between the groups for given covariates.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">CEM_LinearInf.balance</span> <span class="kn">import</span> <span class="n">balance</span>
+
+<span class="n">my_balance</span> <span class="o">=</span> <span class="n">balance</span><span class="p">(</span><span class="n">df_match</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">matched_df</span><span class="p">,</span> <span class="c1"># matched dataframe</span>
+             <span class="n">df_all</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="c1"># original dataframe</span>
+             <span class="n">confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">confounder_cols</span><span class="p">,</span> <span class="c1"># list of column names of confounders</span>
+             <span class="n">cont_confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">cont_confounder_cols</span><span class="p">,</span> <span class="c1"># list of column names of continuous confounders</span>
+             <span class="n">col_y</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="c1"># column name of result variable</span>
+             <span class="n">col_t</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="c1"># column name of treatment variable</span>
+
+<span class="n">my_balance</span><span class="o">.</span><span class="n">balance_assessing</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;density&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<a class="reference internal image-reference" href="_images/den1.png"><img alt="density_result" class="align-center" src="_images/den1.png" style="width: 4.63529in; height: 2.97222in;" /></a>
+<a class="reference internal image-reference" href="_images/den2.png"><img alt="density_result" class="align-center" src="_images/den2.png" style="width: 4.63529in; height: 2.97222in;" /></a>
+</section>
+<section id="empirical-cumulative-density-plot">
+<h2>5️⃣ Empirical Cumulative Density Plot<a class="headerlink" href="#empirical-cumulative-density-plot" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p><strong>‘ecdf’</strong>: Return empirical cumulative density plots of confounders before and after matching.</p>
+<p>The empirical cumulative density plot can be an intuitive and helpful tool for deciding whether adjustment has yielded similar distributions between the groups for given covariates.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">CEM_LinearInf.balance</span> <span class="kn">import</span> <span class="n">balance</span>
+
+<span class="n">my_balance</span> <span class="o">=</span> <span class="n">balance</span><span class="p">(</span><span class="n">df_match</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">matched_df</span><span class="p">,</span> <span class="c1"># matched dataframe</span>
+             <span class="n">df_all</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="c1"># original dataframe</span>
+             <span class="n">confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">confounder_cols</span><span class="p">,</span> <span class="c1"># list of column names of confounders</span>
+             <span class="n">cont_confounder_cols</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">cont_confounder_cols</span><span class="p">,</span> <span class="c1"># list of column names of continuous confounders</span>
+             <span class="n">col_y</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="c1"># column name of result variable</span>
+             <span class="n">col_t</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="c1"># column name of treatment variable</span>
+
+<span class="n">my_balance</span><span class="o">.</span><span class="n">balance_assessing</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;ecdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<a class="reference internal image-reference" href="_images/ecdf.png"><img alt="ecdf_result" class="align-center" src="_images/ecdf.png" style="width: 4.63529in; height: 4.97222in;" /></a>
+</section>
+<section id="reference">
+<h2>⭐️ Reference<a class="headerlink" href="#reference" title="Permalink to this heading">¶</a></h2>
+<ul class="simple" id="bal-ref1">
+<li><p>Greifer N (2023). cobalt: Covariate Balance Tables and Plots. <a class="reference external" href="https://github.com/ngreifer/cobalt">https://github.com/ngreifer/cobalt</a>.</p></li>
+</ul>
+<ul class="simple" id="bal-ref2">
+<li><p>Iacus, S. M., King, G., and Porro, G. (2011). Multivariate Matching Methods That are Monotonic Imbalance Bounding. Journal of the American Statistical Association, 106(493), 345-361. Retrieved from <a class="reference external" href="https://tinyurl.com/y6pq3fyl">https://tinyurl.com/y6pq3fyl</a></p></li>
+</ul>
+<ul class="simple" id="bal-ref5">
+<li><p>Standardized mean difference (SMD) in causal inference. (2021, Oct 31). Retrieved from <a class="reference external" href="https://statisticaloddsandends.wordpress.com/2021/10/31/standardized-mean-difference-smd-in-causal-inference/">https://statisticaloddsandends.wordpress.com/2021/10/31/standardized-mean-difference-smd-in-causal-inference/</a></p></li>
+</ul>
+<ul class="simple" id="bal-ref3">
+<li><p>What is the L1 imbalance measure in causal inference? (2021, Nov 25). Retrieved from <a class="reference external" href="https://statisticaloddsandends.wordpress.com/2021/11/25/what-is-the-l1-imbalance-measure-in-causal-inference/">https://statisticaloddsandends.wordpress.com/2021/11/25/what-is-the-l1-imbalance-measure-in-causal-inference/</a></p></li>
+</ul>
+<ul class="simple" id="bal-ref4">
+<li><p>Zhang, Z., Kim, H. J., Lonjon, G., Zhu, Y., &amp; written on behalf of AME Big-Data Clinical Trial Collaborative Group (2019). Balance diagnostics after propensity score matching. Annals of translational medicine, 7(1), 16. <a class="reference external" href="https://doi.org/10.21037/atm.2018.12.10">https://doi.org/10.21037/atm.2018.12.10</a></p></li>
+</ul>
+<div class="toctree-wrapper compound" id="tuto-balance">
+</div>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="tuto_cem.html"
+       title="previous chapter">← Coarsened Exact Matching</a>
+  </li>
+  <li class="next">
+    <a href="tuto_inf.html"
+       title="next chapter">Inference →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

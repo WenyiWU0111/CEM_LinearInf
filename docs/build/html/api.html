@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>API Reference</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Coarsened Exact Matching" href="api_cem.html" />
+  <link rel="prev" title="Example" href="example.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link  router-link-active">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link  router-link-active">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#cem-linearinf-s-documentation">Catalogue</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">✏️ functions</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">API Reference</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#api-reference" class="reference internal">API Reference</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#reference">⭐️ reference</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>API Reference</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="example.html"
+       title="previous chapter">← Example</a>
+  </li>
+  <li class="next">
+    <a href="api_cem.html"
+       title="next chapter">Coarsened Exact Matching →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_cem.html">Coarsened Exact Matching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.summary"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.summary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.cut"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.cut()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.coarsening"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.coarsening()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.weight"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.weight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.match"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.match()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.k2k_match"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.k2k_match()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_cem.html#CEM_LinearInf.cem.tunning_schema"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.cem.tunning_schema()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_balance.html">Balance Checking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_balance.html#CEM_LinearInf.balance"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.balance</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_balance.html#CEM_LinearInf.balance.balance_assessing"><code class="docutils literal notranslate"><span class="pre">CEM_LinearInf.balance.balance_assessing()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_inf.html">Treatment Effect Inference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_inf.html#inference"><code class="docutils literal notranslate"><span class="pre">inference</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_inf.html#inference.linear_att"><code class="docutils literal notranslate"><span class="pre">inference.linear_att()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_inf.html#inference.weighted_linear_att"><code class="docutils literal notranslate"><span class="pre">inference.weighted_linear_att()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_inf.html#inference.linear_dml_hte"><code class="docutils literal notranslate"><span class="pre">inference.linear_dml_hte()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_sen.html">Sensitivity Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_sen.html#wilcoxon-s-signed-rank-test-based-sensitivity-analysis">Wilcoxon’s signed rank test based sensitivity analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_sen.html#wilcoxon"><code class="docutils literal notranslate"><span class="pre">wilcoxon</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_sen.html#wilcoxon.result"><code class="docutils literal notranslate"><span class="pre">wilcoxon.result()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_sen.html#omitted-variable-bias-based-sensitivity-analysis">Omitted variable bias based sensitivity analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_sen.html#ovb"><code class="docutils literal notranslate"><span class="pre">ovb</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_sen.html#ovb.plot_result"><code class="docutils literal notranslate"><span class="pre">ovb.plot_result()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="example.html"
+       title="previous chapter">← Example</a>
+  </li>
+  <li class="next">
+    <a href="api_cem.html"
+       title="next chapter">Coarsened Exact Matching →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>Balance Checking</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Treatment Effect Inference" href="api_inf.html" />
+  <link rel="prev" title="Coarsened Exact Matching" href="api_cem.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         Contents:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         Contents:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="api.html">API Reference</a> &raquo;</li>
+    
+    <li>Balance Checking</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="api_cem.html"
+       title="previous chapter">← Coarsened Exact Matching</a>
+  </li>
+  <li class="next">
+    <a href="api_inf.html"
+       title="next chapter">Treatment Effect Inference →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="balance-checking">
+<h1>Balance Checking<a class="headerlink" href="#balance-checking" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="CEM_LinearInf.balance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">CEM_LinearInf.</span></span><span class="sig-name descname"><span class="pre">balance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_match</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cont_confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'T'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of balance assessment for the matched data.</p>
+<p>When we finish the coarsened exact matching, it is necessary to evaluate the quality of the matching with imbalance checking methods.</p>
+<p>When the covariate balance is achieved, the resulting effect estimate is less sensitive to model misspecification and ideally close to true treatment effect (Greifer, 2023).</p>
+<dl>
+<dt>The imbalance checking methods provided include:</dt><dd><p>‘<strong>L1</strong>’: Calculate and return the L1 imbalance score.</p>
+<p>‘<strong>smd</strong>’: Print the standardized mean difference summary table and plots of confounders.</p>
+<p>‘<strong>ks</strong>’: Plot Kolmogorov-Smirnov Statistics of confounders before and after matching.</p>
+<p>‘<strong>density</strong>’: Return density plots of confounders before and after matching.</p>
+<p>‘<strong>ecdf</strong>’: Return empirical cumulative density plots of confounders before and after matching.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df_match</strong> (<em>pd.Dataframe</em>) – The dataframe after matching.</p></li>
+<li><p><strong>df_all</strong> (<em>pd.Dataframe</em>) – The original dataframe before matching.</p></li>
+<li><p><strong>confounder_cols</strong> (<em>list</em>) – The column names of confounders among all variables X.</p></li>
+<li><p><strong>cont_confounder_cols</strong> (<em>list</em>) – The column names of all continuous variables among confounders.</p></li>
+<li><p><strong>col_y</strong> (<em>str</em>) – The column name of result Y in your dataframe. If not specified, it would be “Y”.</p></li>
+<li><p><strong>col_t</strong> (<em>str</em>) – The column name of treatment T in your dataframe. If not specified, it would be “T”.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.balance.balance_assessing">
+<span class="sig-name descname"><span class="pre">balance_assessing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'smd'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[0.1,</span> <span class="pre">2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_print</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.balance.balance_assessing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for generating the imbalance assessing result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>str</em>) – <p>The method to be used for balance assessment. If it’s not specified, the default method is ‘<strong>smd</strong>’.</p>
+<blockquote>
+<div><p>’<strong>L1</strong>’: Calculate and return the L1 imbalance score.</p>
+<p>’<strong>smd</strong>’: Print the standardized mean difference summary table and plots of confounders.</p>
+<p>’<strong>ks</strong>’: Plot Kolmogorov-Smirnov Statistics of confounders before and after matching.</p>
+<p>’<strong>density</strong>’: Return density plots of confounders before and after matching.</p>
+<p>’<strong>ecdf</strong>’: Return empirical cumulative density plots of confounders before and after matching.</p>
+<p>’<strong>all</strong>’: Implement all the methods above.</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>threshold</strong> (<em>list</em>) – <p>When you choose ‘smd’ to assess the balance, you can set the balance thresholds for smd and variance ratio.</p>
+<p>If it’s not specified, the default thresholds are 0.1 and 2 for standardized mean difference and variance ratio respectively.</p>
+</p></li>
+<li><p><strong>_print</strong> (<em>bool</em>) – Whether to print the L1 score.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="api_cem.html"
+       title="previous chapter">← Coarsened Exact Matching</a>
+  </li>
+  <li class="next">
+    <a href="api_inf.html"
+       title="next chapter">Treatment Effect Inference →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>Sensitivity Analysis</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="prev" title="Treatment Effect Inference" href="api_inf.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         Contents:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         Contents:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="api.html">API Reference</a> &raquo;</li>
+    
+    <li>Sensitivity Analysis</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="api_inf.html"
+       title="previous chapter">← Treatment Effect Inference</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="sensitivity-analysis">
+<h1>Sensitivity Analysis<a class="headerlink" href="#sensitivity-analysis" title="Permalink to this heading">¶</a></h1>
+<section id="wilcoxon-s-signed-rank-test-based-sensitivity-analysis">
+<h2>Wilcoxon’s signed rank test based sensitivity analysis<a class="headerlink" href="#wilcoxon-s-signed-rank-test-based-sensitivity-analysis" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="wilcoxon">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wilcoxon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wilcoxon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of wilcoxon’s signed rank test based sensitivity analysis methods.</p>
+<p>When we conduct causal inference to the observational data, the most important assumption is that there is no unobserved confounding.</p>
+<p>Therefore, after finishing the treatment effect estimation, investigators are advised to conduct the sensitivity analysis to examine how fragile a result is against the possibility of unobserved confounders (Cinelli, Hazlett, 2019).</p>
+<p>In other words, we should examine how strong the effect of unobserved confounders should be to erase the treatment effect estimated.</p>
+<p>Wilcoxon’s signed rank test based sensitivity analysis method is provided in this class. Please be noted that you can only use this method if your data is 1-1 matched.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The matched dataframe.</p></li>
+<li><p><strong>pair</strong> (<em>dict</em>) – A dictionary of pair index, indicating which control sample is paired with each experimantal sample.</p></li>
+<li><p><strong>col_y</strong> (<em>str</em>) – The column name of dependent variable Y in your dataframe. If not specified, it would be “Y”.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="wilcoxon.result">
+<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wilcoxon.result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to conduct the wilcoxon’s signed rank test based sensitivity analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gamma_list</strong> – list
+A list of gamma values you want to test. Gamma refers to the possibility a sample will be treated compared to its pair sample.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame: A result dataframe including p-values under each gamma value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="omitted-variable-bias-based-sensitivity-analysis">
+<h2>Omitted variable bias based sensitivity analysis<a class="headerlink" href="#omitted-variable-bias-based-sensitivity-analysis" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ovb">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ovb</span></span><a class="headerlink" href="#ovb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of omitted variable bias based sensitivity analysis methods.</p>
+<p>When we conduct causal inference to the observational data, the most important assumption is that there is no unobserved confounder.</p>
+<p>Therefore, after finishing the treatment effect estimation, investigators are advised to conduct the sensitivity analysis to examine how fragile a result is against the possibility of unobserved confounders (Cinelli, Hazlett, 2019).</p>
+<p>In other words, we should examine how strong the effect of unobserved confounders should be to erase the treatment effect estimated.</p>
+<p>Omitted variable bias based sensitivity analysis method is provided in this class. Please be noted that you can only use this method in linear case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>col_t</strong> (<em>str</em>) – The column name of treatment variable T in your dataframe. If not specified, it would be “T”.</p></li>
+<li><p><strong>model</strong> – The regression model before fitted.</p></li>
+<li><p><strong>bench_variable</strong> (<em>str</em>) – The confounder you choose as a benchmark.</p></li>
+<li><p><strong>k_t</strong> (<em>int</em><em> or </em><em>list</em>) – <p><span class="math notranslate nohighlight">\(R^2\)</span> between treatment and the unobservable confounder / <span class="math notranslate nohighlight">\(R^2\)</span> between treatment and the benchmark confounder</p>
+<p>You can interpret as how many times the correlation between the unobservable confounder and the treatment is to
+that between the benchmark confounder and the treatment. The default value is 1.</p>
+</p></li>
+<li><p><strong>k_y</strong> (<em>int</em><em> or </em><em>list</em>) – <p><span class="math notranslate nohighlight">\(R^2\)</span> between result y and the unobservable confounder / <span class="math notranslate nohighlight">\(R^2\)</span> between result y and the benchmark confounder</p>
+<p>You can interpret it as how many times the correlation between the unobservable confounder and the result is to that between the benchmark confounder and the result. The default value is 1.</p>
+</p></li>
+<li><p><strong>threshold</strong> (<em>int</em>) – The threshold level in the result plot. The default value is 0.</p></li>
+<li><p><strong>measure</strong> (<em>str</em>) – The measure you want to shown in the result plot. You can choose between ‘att’ and ‘t’. The default measure is ‘att’.
+‘att’: The estimated average treatment effect.
+‘t’: The t-value of the estimated average treatment effect.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ovb.plot_result">
+<span class="sig-name descname"><span class="pre">plot_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lim_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lim_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span> <span class="pre">or</span> <span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ovb.plot_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for omiited variable bias based sensitivity analysis.</p>
+<p>The result plot presents how the averaged treatment effect or the t-value will change with different values of <span class="math notranslate nohighlight">\(R^2\)</span> between unobservable confounder and T and that between unobservable confounder and Y.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lim_x</strong> (<em>float</em>) – x-axis limit of the plot.</p></li>
+<li><p><strong>lim_y</strong> (<em>float</em>) – y-axis limit of the plot.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="api_inf.html"
+       title="previous chapter">← Treatment Effect Inference</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>Coarsened Exact Matching</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Balance Checking" href="tuto_balance.html" />
+  <link rel="prev" title="Tutorial" href="tutorial.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#cem-linearinf-s-documentation">Catalogue</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">✏️ functions</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#reference">⭐️ reference</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="tutorial.html">Tutorial</a> &raquo;</li>
+    
+    <li>Coarsened Exact Matching</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="tutorial.html"
+       title="previous chapter">← Tutorial</a>
+  </li>
+  <li class="next">
+    <a href="tuto_balance.html"
+       title="next chapter">Balance Checking →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="coarsened-exact-matching">
+<h1>Coarsened Exact Matching<a class="headerlink" href="#coarsened-exact-matching" title="Permalink to this heading">¶</a></h1>
+<section id="model">
+<h2>💡 Model<a class="headerlink" href="#model" title="Permalink to this heading">¶</a></h2>
+<p><strong>CEM</strong> is a nonparametric data preprocessing algorithm in causal inference that has a broad applicability to <strong>observational data</strong>.
+With CEM, you can construct your observational data into ‘quasi’ experimental data easily.</p>
+<p>When conducting CEM, each sample is represented by confounder properties coarsened to discrete values using a coarsening or binning strategy.
+Thus each sample is given a “<strong>BIN Signature</strong>” and samples with <strong>exactly the same</strong> signature will be matched in the same group <span class="math notranslate nohighlight">\(s \in S\)</span>.
+We denote the treated units by <span class="math notranslate nohighlight">\(T^s\)</span> in group <span class="math notranslate nohighlight">\(s\)</span> and the number of treated units in the group by <span class="math notranslate nohighlight">\(m_{T}^s\)</span>.
+Similarly for the control units, that is, <span class="math notranslate nohighlight">\(C^s\)</span> and <span class="math notranslate nohighlight">\(m_{C}^s\)</span>. <span class="math notranslate nohighlight">\(m_{T}\)</span> and <span class="math notranslate nohighlight">\(m_{C}\)</span> are the number of matched units for treated and controls respectively.
+To each matched unit <span class="math notranslate nohighlight">\(i\)</span> in stratum <span class="math notranslate nohighlight">\(s\)</span>, CEM assigns the following weights, and this weight will be used estimating the average treatment effect (<a class="reference internal" href="#cem-ref2"><span class="std std-ref">Iacus, King, &amp; Porro, 2012</span></a>).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}w_{i} = \begin{cases}
+1, i \in T^s  \\
+\frac{m_{C}}{m_{T}} \frac{m_{T}^s}{m_{C}^s} , i \in C^s
+\end{cases}\end{split}\]</div>
+<p>The matched exactly balanced data indicates that there is no need to control for X, as it is irelevant to the treatment variable.
+Therefore, estimating the causal effect can be done simply by calculating the difference in means using the matched data.
+However, if your matched data is approximately balanced, it is necessary to control for X with a model (<a class="reference internal" href="#cem-ref1"><span class="std std-ref">Ho, Imai, King, &amp; Stuart 2007</span></a>).
+More details can be found in the <a class="reference internal" href="tuto_inf.html#tuto-inf"><span class="std std-ref">inference</span></a> part, and you can check <a class="reference internal" href="tuto_balance.html#tuto-balance"><span class="std std-ref">the next section</span></a> about how to measure the balance of your data.</p>
+<p><strong>Asumptions</strong></p>
+<ul class="simple">
+<li><p>Conditioncal on <span class="math notranslate nohighlight">\(X\)</span>, the treatment variable is independent with the potential outcomes.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[T_{i} \perp\!\!\!\perp {(Y_i(0), Y_i(1))} \mid X\]</div>
+<p><strong>Advantages</strong></p>
+<ul class="simple">
+<li><p>Easy to understand and great interpretability.</p></li>
+<li><p>No assumptions about the data generation process.</p></li>
+<li><p>Mitigating the model dependency, bias, and inefficiency of your treatment effect estimation (<a class="reference internal" href="#cem-ref1"><span class="std std-ref">Ho, Imai, King, &amp; Stuart 2007</span></a>).</p></li>
+</ul>
+<p><strong>Limitations</strong></p>
+<ul class="simple">
+<li><p>There might be omitted confounders, which can reduce the precision of estimated treatment effect, and even gives a contradictory conclusion. This effect could be assessed with <a class="reference internal" href="tuto_inf.html#tuto-inf"><span class="std std-ref">sensitivity analysis</span></a>.</p></li>
+<li><p>Choosing the coarsening setting appropriately is the primary issue to consider when running CEM (<a class="reference internal" href="#cem-ref2"><span class="std std-ref">Iacus, King, &amp; Porro, 2012</span></a>). You can set the coarsening setting manually based on your understanding of your covariates, or use the coarsening parameters fine-tune function in this package.</p></li>
+<li><p>CEM possesses the characteristic of having a monotonic imbalance bound property, making it one of the simplest methods. However, it is also possible to enhance and customize other methods for specific applications by leveraging established techniques within each CEM group (<a class="reference internal" href="#cem-ref2"><span class="std std-ref">Iacus, King, &amp; Porro, 2012</span></a>). In this package, you can conduct 1-k matching based on the CEM. Details can be found in the <a class="reference internal" href="#k-match"><span class="std std-ref">folowing tutorial</span></a>.</p></li>
+</ul>
+</section>
+<section id="example">
+<h2>⌨️ Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
+<p><strong>Import and Data Preperation</strong></p>
+<p>First, you should import the class <code class="docutils literal notranslate"><span class="pre">cem</span></code> and the function <code class="docutils literal notranslate"><span class="pre">data_generation</span></code> from our package <code class="docutils literal notranslate"><span class="pre">CEM_LinearInf</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">CEM_LinearInf.cem</span> <span class="kn">import</span> <span class="n">cem</span>
+<span class="kn">from</span> <span class="nn">CEM_LinearInf.data_generation</span> <span class="kn">import</span> <span class="n">data_generation</span>
+</pre></div>
+</div>
+<p>You can generate the dataset with <code class="docutils literal notranslate"><span class="pre">data_generation</span></code> function directly, in which you can set the sample size, treatment probability, average treatment effect, and
+parameters for covariates and confounders. Please note that here the result variable <span class="math notranslate nohighlight">\(Y\)</span> is linearly dependent with control variables <span class="math notranslate nohighlight">\(X\)</span> and treatment variable <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">data_generation</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="c1"># sample size</span>
+                 <span class="n">p</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>   <span class="c1"># P(T=1)</span>
+                 <span class="n">att</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>   <span class="c1"># True average treatment effect on treated</span>
+                 <span class="n">x_cont</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="c1"># Generate 6 continuous variables X following the normal distribution N(0, 1).</span>
+                 <span class="n">x_cate</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="c1"># Generate 3 catigorical variables X with 2, 4, 4 categories respectively.</span>
+                 <span class="n">con_x</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)]</span> <span class="c1"># X1, X2, X3, X7, X9 are confounders and</span>
+                 <span class="p">)</span>                                                   <span class="c1"># their effect on T are 3, -2, 1, 2.5, 1.5 resectively.</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">df</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>X1</p></th>
+<th class="head"><p>X2</p></th>
+<th class="head"><p>X3</p></th>
+<th class="head"><p>X4</p></th>
+<th class="head"><p>X5</p></th>
+<th class="head"><p>X6</p></th>
+<th class="head"><p>X7</p></th>
+<th class="head"><p>X8</p></th>
+<th class="head"><p>X9</p></th>
+<th class="head"><p>T</p></th>
+<th class="head"><p>Y</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>-1.1272267236947700</p></td>
+<td><p>-1.581226302520010</p></td>
+<td><p>-0.6556658772290540</p></td>
+<td><p>-0.1900801925850620</p></td>
+<td><p>0.9313871800949950</p></td>
+<td><p>-0.5887463208662830</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+<td><p>3.0</p></td>
+<td><p>1</p></td>
+<td><p>-3.7888544062551600</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>-0.35029138960327400</p></td>
+<td><p>-0.6968508106596820</p></td>
+<td><p>1.8267061637216000</p></td>
+<td><p>-0.7550024347237330</p></td>
+<td><p>1.4921923242399800</p></td>
+<td><p>0.29896435202770100</p></td>
+<td><p>0.0</p></td>
+<td><p>3.0</p></td>
+<td><p>3.0</p></td>
+<td><p>0</p></td>
+<td><p>10.432177337311000</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>-1.1078800570013400</p></td>
+<td><p>-0.004072902846078520</p></td>
+<td><p>-1.8166437050716900</p></td>
+<td><p>-0.25658910105683600</p></td>
+<td><p>0.5646220154584350</p></td>
+<td><p>-0.3831915543092030</p></td>
+<td><p>0.0</p></td>
+<td><p>2.0</p></td>
+<td><p>2.0</p></td>
+<td><p>0</p></td>
+<td><p>13.527537670039700</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>-1.4395437807621100</p></td>
+<td><p>0.11519853425235600</p></td>
+<td><p>-0.12404271565668400</p></td>
+<td><p>1.2879614172670000</p></td>
+<td><p>0.17803779978719500</p></td>
+<td><p>0.9650402740405890</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+<td><p>1.0</p></td>
+<td><p>0</p></td>
+<td><p>2.4135460065982300</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0.39763579158597000</p></td>
+<td><p>-0.012467404245697800</p></td>
+<td><p>0.6417354626343980</p></td>
+<td><p>-1.049706238799090</p></td>
+<td><p>-0.5812176102222940</p></td>
+<td><p>-1.4328163941277300</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+<td><p>1.0</p></td>
+<td><p>1</p></td>
+<td><p>-4.718393342784050</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>-1.3734540788802600</p></td>
+<td><p>1.4138490650861700</p></td>
+<td><p>1.4805845809239700</p></td>
+<td><p>-0.19862072639993400</p></td>
+<td><p>0.43125358190456600</p></td>
+<td><p>0.37940900915644100</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+<td><p>1.0</p></td>
+<td><p>0</p></td>
+<td><p>7.057909511852510</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fit CEM Model</strong></p>
+<p>Then you should create your own <cite>cem</cite> , giving it your dataframe, column names of confounders, continuous confounders, result variable <strong>Y</strong> and treatment variable <strong>T</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">confounder_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span><span class="s1">&#39;X7&#39;</span><span class="p">,</span> <span class="s1">&#39;X9&#39;</span><span class="p">]</span>
+<span class="n">cont_confounder_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span><span class="s1">&#39;X3&#39;</span><span class="p">]</span>
+<span class="n">my_cem</span> <span class="o">=</span> <span class="n">cem</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="c1"># dataframe to be matched</span>
+            <span class="n">confounder_cols</span> <span class="o">=</span> <span class="n">confounder_cols</span><span class="p">,</span> <span class="c1"># list of confounders&#39; column names</span>
+            <span class="n">cont_confounder_cols</span> <span class="o">=</span> <span class="n">cont_confounder_cols</span><span class="p">,</span> <span class="c1"># list of continuous confounders&#39; column names</span>
+            <span class="n">col_y</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="c1"># column name of result variable</span>
+            <span class="n">col_t</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span> <span class="c1"># column name of treatment variable</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+<p>cem could give you the summary of your dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_cem</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Descriptive Statistics of the dataframe:
+
+                X1           X2           X3           X4           X5  \
+count  10,000.0000  10,000.0000  10,000.0000  10,000.0000  10,000.0000
+mean       -0.0160       0.0213      -0.0013       0.0001      -0.0144
+std         0.9963       1.0065       0.9986       0.9955       0.9841
+min        -3.5670      -4.2668      -4.7132      -4.0806      -3.4952
+25%        -0.6865      -0.6595      -0.6691      -0.6720      -0.6779
+50%        -0.0231       0.0113      -0.0048      -0.0038      -0.0129
+75%         0.6568       0.7026       0.6661       0.6730       0.6519
+max         3.6061       3.7632       4.1706       3.9502       3.7476
+
+                X6           X7           X8           X9            T  \
+count  10,000.0000  10,000.0000  10,000.0000  10,000.0000  10,000.0000
+mean       -0.0016       0.4954       1.5062       1.4953       0.1533
+std         1.0056       0.5000       1.1230       1.1172       0.3603
+min        -3.8068       0.0000       0.0000       0.0000       0.0000
+25%        -0.6853       0.0000       1.0000       0.0000       0.0000
+50%        -0.0034       0.0000       1.0000       2.0000       0.0000
+75%         0.6783       1.0000       3.0000       2.0000       0.0000
+max         4.5216       1.0000       3.0000       3.0000       1.0000
+
+                Y
+count  10,000.0000
+mean        6.4324
+std         9.5579
+min       -29.9051
+25%        -0.0168
+50%         6.3347
+75%        12.9615
+max        43.8527
+
+Control group vs. Experimental group
+
+n_samples    mean_Y
+0       8467  6.277839
+1       1533  7.286350
+
+T-test of Experimental group Y and Control group Y
+
+att estimate (p-value): 1.0085(0.0001)
+The difference between Experimental group Y and Control group Y is significant, and the difference is 1.0085.
+</pre></div>
+</div>
+<p>Then we can try matching your dataset using <cite>match</cite> function with default parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_cem</span><span class="o">.</span><span class="n">match</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After the default coarsened exact matching, 82.84% treated samples are matched.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Matching result
+
+    all  matched  propotion
+0  8467     3338     0.3942
+1  1533     1270     0.8284
+</pre></div>
+</div>
+<p>Moreover, we can customize our coarsen schema to optimize our matching result. The matched result with a suitable coarsen schema will have smaller L1 imbalance score and more matched samples.</p>
+<ul>
+<li><dl>
+<dt><strong>Method 1:</strong></dt><dd><p>You can input a schema dictionary indicating how to coarsen each continuous confounders X if you have a thorough understanding on your dataset.</p>
+<p>The following cutting method can be chosen.</p>
+<ul class="simple">
+<li><p><cite>cut</cite>: Bin values into discrete intervals <strong>with the same length</strong>.</p></li>
+<li><p><cite>qcut</cite>: Discretize variable into <strong>equal-sized buckets</strong> based on rank or based on sample quantiles.</p></li>
+<li><p><cite>struges</cite>: Bin values into <span class="math notranslate nohighlight">\(k\)</span> discrete intervals with the same length according to the <span class="math notranslate nohighlight">\(Sturges' rule\)</span>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[k = \lceil log_2n + 1 \rceil\]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_cem</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cut&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Method 2:</strong></dt><dd><p>You can also use the <code class="docutils literal notranslate"><span class="pre">tunning_schema</span></code> function to help you tune the coarsen schema automatically.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">my_cem</span><span class="o">.</span><span class="n">tunning_schema</span><span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">my_cem</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Matching result
+
+    all  matched  propotion
+0  8467     5763     0.6806
+1  1533     1431     0.9335
+</pre></div>
+</div>
+<p><strong>CEM combined with other Matching methods</strong></p>
+<p id="k-match">It has been declared that leveraging established techniques within each CEM group can further improve the in-group balance.
+Inspired by the <strong>K Nearest Neighbor Algorithm</strong>, in the same strata, a treated sample will be matched with <span class="math notranslate nohighlight">\(k\)</span> controled samples having nearest distance or propensity score with it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_cem_k2k</span> <span class="o">=</span> <span class="n">cem</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">confounder_cols</span><span class="p">,</span> <span class="n">cont_confounder_cols</span><span class="p">)</span>
+<span class="n">my_cem_k2k</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">k2k_ratio</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dist</span> <span class="o">=</span> <span class="s1">&#39;psm&#39;</span><span class="p">)</span>
+<span class="c1"># my_cem_k2k.match(k2k_ratio = 1, dist = &#39;euclidean&#39;)</span>
+<span class="c1"># my_cem_k2k.match(k2k_ratio = 1, dist = &#39;mahalanobis&#39;)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Matching result
+
+    all  matched  propotion
+0  8467     1270     0.1500
+1  1533     1270     0.8284
+</pre></div>
+</div>
+</section>
+<section id="reference">
+<h2>⭐️ Reference<a class="headerlink" href="#reference" title="Permalink to this heading">¶</a></h2>
+<ul class="simple" id="cem-ref1">
+<li><p>Ho, D., Imai, K., King, G., &amp; Stuart, E. (2007). Matching as Nonparametric Preprocessing for Reducing Model Dependence in Parametric Causal Inference. Political Analysis, 15, 199–236. Retrieved from <a class="reference external" href="https://tinyurl.com/y4xtv32s">https://tinyurl.com/y4xtv32s</a></p></li>
+</ul>
+<ul class="simple" id="cem-ref3">
+<li><p>Ho D, Imai K, King G, Stuart E (2011). “MatchIt: Nonparametric Preprocessing for Parametric Causal Inference.” Journal of Statistical Software, 42(8), 1–28. <a class="reference external" href="https://doi.org/10.18637/jss.v042.i08">https://doi.org/10.18637/jss.v042.i08</a>.</p></li>
+</ul>
+<ul class="simple" id="cem-ref2">
+<li><p>Iacus, S. M., King, G., &amp; Porro, G. (2012). Causal Inference Without Balance Checking: Coarsened Exact Matching. Political Analysis, 20(1), 1–24. Retrieved from <a class="reference external" href="https://tinyurl.com/yydq5enf">https://tinyurl.com/yydq5enf</a></p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="tutorial.html"
+       title="previous chapter">← Tutorial</a>
+  </li>
+  <li class="next">
+    <a href="tuto_balance.html"
+       title="next chapter">Balance Checking →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

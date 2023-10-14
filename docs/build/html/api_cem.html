@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>Coarsened Exact Matching</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Balance Checking" href="api_balance.html" />
+  <link rel="prev" title="API Reference" href="api.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#cem-linearinf-s-documentation">Catalogue</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">✏️ functions</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#reference">⭐️ reference</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="api.html">API Reference</a> &raquo;</li>
+    
+    <li>Coarsened Exact Matching</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="api.html"
+       title="previous chapter">← API Reference</a>
+  </li>
+  <li class="next">
+    <a href="api_balance.html"
+       title="next chapter">Balance Checking →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="coarsened-exact-matching">
+<h1>Coarsened Exact Matching<a class="headerlink" href="#coarsened-exact-matching" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">CEM_LinearInf.</span></span><span class="sig-name descname"><span class="pre">cem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cont_confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'T'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of Coarsened Exact Matching (CEM).</p>
+<p>CEM is a data preprocessing algorithm in causal inference that has broad applicability to observational data.
+With CEM, you can construct your observational data into ‘quasi’ experimental data easily, mitigating the model dependency, bias, and inefficiency of your estimation of the treatment effect (King and Zeng 2006; Ho, Imai, King, and Stuart 2007; Iacus et al. 2008).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.Dataframe</em>) – The dataframe you want to summarize.</p></li>
+<li><p><strong>confounder_cols</strong> (<em>list</em>) – The column names of confounders among all variables X.</p></li>
+<li><p><strong>cont_confounder_cols</strong> (<em>list</em>) – The column names of all continuous variables among confounders.</p></li>
+<li><p><strong>col_y</strong> (<em>string</em>) – The column name of result Y in your dataframe. If not specified, it would be “Y”.</p></li>
+<li><p><strong>col_t</strong> (<em>string</em>) – The column name of treatment T in your dataframe. If not specified, it would be “T”.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for generating the summary of data, return the descriptive statistics result of the dataframe
+and the T-test result of Experimental group <cite>Y_1</cite> and Control group <cite>Y_2</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.cut">
+<span class="sig-name descname"><span class="pre">cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span> <span class="pre">or</span> <span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for cutting a continuous confounder X into discrete bins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>col</strong> (<em>pd.Series</em>) – Continuous confounder X to be coarsened.</p></li>
+<li><p><strong>func</strong> (<em>str</em>) – <p>Cutting function to be used. The following functions can be chosen.</p>
+<p>’<strong>cut</strong>’: Bin values into discrete intervals with the same length.</p>
+<p>’<strong>qcut</strong>’: Discretize variable into equal-sized buckets based on rank or based on sample quantiles.</p>
+<p>’<strong>struges</strong>’: Bin values into discrete intervals with the same length k according to the Sturges’ rule.</p>
+</p></li>
+<li><p><strong>param</strong> (<em>int</em><em> or </em><em>list</em><em> (</em><em>optional</em><em>)</em>) – <p>When the method is ‘<strong>cut</strong>’, it’s a number of bins or a list of bins’ edges;</p>
+<p>When the method is ‘<strong>qcut</strong>’, it’s a number of quantiles or a list of quantiles, <em>e.g.</em> [0, .25, .5, .75, 1.] for quartiles.</p>
+<p>When the method is ‘<strong>struges</strong>’, there’s no need to specify the param.</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.Series: Coarsened confounder X.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.coarsening">
+<span class="sig-name descname"><span class="pre">coarsening</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coarsen_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cont_confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.coarsening" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coarsen your data based on the specified coarsen schema. If the coarsen schema is not specified, the default method is binning values into discrete intervals with the same length <strong>k</strong> according to the Sturges’ rule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coarsen_df</strong> (<em>pd.DataFrame</em>) – DataFrame to be coarsened.</p></li>
+<li><p><strong>cont_confounder_cols</strong> (<em>list</em>) – Column names of continuous confounders of the dataframe to be coarsened.</p></li>
+<li><p><strong>chema</strong> (<em>dict</em>) – <p>The dictionary specifing what coarsening method you want to use on each continuous confounder <strong>X</strong>.</p>
+<p>If it is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges’ rule.</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame: Dataframe with coarsened confounders <strong>X</strong>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.weight">
+<span class="sig-name descname"><span class="pre">weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strata_T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.Series</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method of computing weights for each observation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strata_T</strong> (<em>pd.Series</em>) – The treatment <strong>T</strong> of samples in one strata.</p></li>
+<li><p><strong>all_T</strong> (<em>pd.Series</em>) – The treatment <strong>T</strong> of all the matched samples.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.Series: Weights of samples in the input strata.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2k_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'euclidean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_print</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for perform coarsened exact matching using the specified coarsening schema and return the dataframe with weights for each observation.</p>
+<p>If the coarsen schema is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges’ rule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> (<em>dict</em>) – <p>The dictionary specifing what coarsening method you want to use on each continuous confounder <strong>X</strong>.</p>
+<p>If it is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges’ rule.</p>
+</p></li>
+<li><p><strong>k2k_ratio</strong> (<em>int</em>) – <p>The ratio of (# control samples / # treatment samples) when we conduct k to k matching.</p>
+<p>If <cite>k2k_ratio</cite> is 0, we don’t conduct k to k matching.</p>
+<p>Otherwise, all treatment samples in each strata will be matched with k nearest control samples.</p>
+</p></li>
+<li><p><strong>dist</strong> (<em>str</em>) – <p>The measure of distance when conducting k to k matching.</p>
+<p>You can choose among [‘euclidean’, ‘mahalanobis;, ‘psm’]. The default one is ‘<strong>euclidean</strong>’.</p>
+</p></li>
+<li><p><strong>_print</strong> (<em>bool</em>) – Whether to print the matching result.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame: The matched dataframe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.k2k_match">
+<span class="sig-name descname"><span class="pre">k2k_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2k_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.k2k_match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for performing k to k coarsened exact matching using the specified distance measure, and return the dataframe with weights for each observation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The coarsened dataframe to be matched.</p></li>
+<li><p><strong>confounder_cols</strong> (<em>list</em>) – The column names of all continuous variables among confounders.</p></li>
+<li><p><strong>group</strong> (<em>list</em>) – <p>The column names of variables used for grouping.</p>
+<p>It’s equivalent to dis_confounder_cols + [’<a href="#id1"><span class="problematic" id="id2">coarsen_</span></a>’ + name for name in cont_confounder_cols].</p>
+</p></li>
+<li><p><strong>dist</strong> (<em>str</em>) – <p>The measure of distance when conducting k to k matching.</p>
+<p>You can choose among [‘euclidean’, ‘mahalanobis;, ‘psm’]. The default one is ‘<strong>euclidean</strong>’.</p>
+</p></li>
+<li><p><strong>k2k_ratio</strong> (<em>int</em>) – <p>The ratio of (# control samples / # treatment samples) when we conduct k to k matching.</p>
+<p>All treatment samples in each strata will be matched with k nearest control samples.</p>
+<p>The default ratio is <strong>1</strong>.</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>pd.DataFrame: The matched dataframe.</p>
+<p>dict: A dictionary of pair index, indicating which control sample is paired with each experimantal sample.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CEM_LinearInf.cem.tunning_schema">
+<span class="sig-name descname"><span class="pre">tunning_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CEM_LinearInf.cem.tunning_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for fine-tunning continuous confounders’ binning schema automatically. The optimization objective is to have a smaller L1 score conditional on a relatively large matched sample size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>step</strong> (<em>int</em>) – <p>The step when tunning the number of bins.</p>
+<p>E.X. When ‘step’ = 4, the function will calculate all L1 scores when the number of bins equals :<span class="math notranslate nohighlight">\([4, 8, ..., 1 + \log_{2}n]\)</span>.</p>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>pd.DataFrame: A dataframe recording L1 scores of each schemas.</p>
+<p>dict: The optimal schema dictionary.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="api.html"
+       title="previous chapter">← API Reference</a>
+  </li>
+  <li class="next">
+    <a href="api_balance.html"
+       title="next chapter">Balance Checking →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

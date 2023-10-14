@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>Example</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="🔖 CEM Notebook Example - Simulated Linear Dataset" href="example_simu.html" />
+  <link rel="prev" title="Sensitivity Analysis" href="tuto_sen.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link  router-link-active">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link  router-link-active">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#cem-linearinf-s-documentation">Catalogue</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">✏️ functions</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Example</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#example" class="reference internal">Example</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#reference">⭐️ reference</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Example</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="tuto_sen.html"
+       title="previous chapter">← Sensitivity Analysis</a>
+  </li>
+  <li class="next">
+    <a href="example_simu.html"
+       title="next chapter">🔖 CEM Notebook Example - Simulated Linear Dataset →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="example">
+<h1>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h1>
+<p>In this section, we will show you two examples of CEM_LinearInf package applications on both simulated dataset and real dataset. Please check the following Contents for further information.</p>
+<div class="toctree-wrapper compound" id="id1">
+<p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example_simu.html">🔖 CEM Notebook Example - Simulated Linear Dataset</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="example_simu.html#data-preperation">1. Data preperation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_simu.html#coarsened-exact-matching-cem">2. Coarsened Exact Matching (CEM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_simu.html#balance-checking">3. Balance Checking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_simu.html#treatment-effect-inference">4. Treatment Effect Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_simu.html#sensitivity-analysis">5. Sensitivity Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_simu.html#omitted-variable-bias-based-sensitivity-analysis">5.1 Omitted variable bias based sensitivity analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_simu.html#wilcoxon-s-signed-rank-test-based-sensitivity-analysis">5.2 Wilcoxon’s signed rank test based sensitivity analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="example_real.html">🔖 CEM Notebook Example - Lalonde Dataset</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="example_real.html#data-preperation">1. Data preperation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_real.html#coarsened-exact-matching-cem">2. Coarsened Exact Matching (CEM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_real.html#balance-checking">3. Balance Checking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_real.html#treatment-effect-inference">4. Treatment Effect Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_real.html#sensitivity-analysis">5. Sensitivity Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_real.html#omitted-variable-bias-based-sensitivity-analysis">5.1 Omitted variable bias based sensitivity analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_real.html#wilcoxon-s-signed-rank-test-based-sensitivity-analysis">5.2 Wilcoxon’s signed rank test based sensitivity analysis</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="tuto_sen.html"
+       title="previous chapter">← Sensitivity Analysis</a>
+  </li>
+  <li class="next">
+    <a href="example_simu.html"
+       title="next chapter">🔖 CEM Notebook Example - Simulated Linear Dataset →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

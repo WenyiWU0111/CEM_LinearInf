@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>Tutorial</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Coarsened Exact Matching" href="tuto_cem.html" />
+  <link rel="prev" title="Usage" href="usage.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link  router-link-active">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link  router-link-active">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#cem-linearinf-s-documentation">Catalogue</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">✏️ functions</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Tutorial</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#contents" class="reference internal">Contents</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#reference">⭐️ reference</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Tutorial</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="usage.html"
+       title="previous chapter">← Usage</a>
+  </li>
+  <li class="next">
+    <a href="tuto_cem.html"
+       title="next chapter">Coarsened Exact Matching →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading">¶</a></h1>
+<p>In this tutorial, we will show you how to use CEM_LinearInf package. Please check the following Contents for further information.</p>
+<div class="toctree-wrapper compound" id="id1">
+</div>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tuto_cem.html">Coarsened Exact Matching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tuto_cem.html#model">💡 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_cem.html#example">⌨️ Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_cem.html#reference">⭐️ Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tuto_balance.html">Balance Checking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tuto_balance.html#l1-imbalance-score">1️⃣ L1 imbalance score</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_balance.html#standardized-mean-difference">2️⃣ Standardized Mean Difference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_balance.html#kolmogorov-smirnov-statistics">3️⃣ Kolmogorov-Smirnov Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_balance.html#density-plot">4️⃣ Density Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_balance.html#empirical-cumulative-density-plot">5️⃣ Empirical Cumulative Density Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_balance.html#reference">⭐️ Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tuto_inf.html">Inference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tuto_inf.html#model">💡 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_inf.html#example">⌨️ Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_inf.html#reference">⭐️ Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tuto_sen.html">Sensitivity Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tuto_sen.html#ovb">1️⃣ OVB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_sen.html#wilcoxon-s-signed-rank-test">2️⃣ Wilcoxon’s  signed rank test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuto_sen.html#reference">⭐️ Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="usage.html"
+       title="previous chapter">← Usage</a>
+  </li>
+  <li class="next">
+    <a href="tuto_cem.html"
+       title="next chapter">Coarsened Exact Matching →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

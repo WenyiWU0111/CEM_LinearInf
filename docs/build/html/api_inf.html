@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>Treatment Effect Inference</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Sensitivity Analysis" href="api_sen.html" />
+  <link rel="prev" title="Balance Checking" href="api_balance.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         Contents:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         Contents:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="api.html">API Reference</a> &raquo;</li>
+    
+    <li>Treatment Effect Inference</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="api_balance.html"
+       title="previous chapter">← Balance Checking</a>
+  </li>
+  <li class="next">
+    <a href="api_sen.html"
+       title="next chapter">Sensitivity Analysis →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="treatment-effect-inference">
+<h1>Treatment Effect Inference<a class="headerlink" href="#treatment-effect-inference" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="inference">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'T'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounder_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#inference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of linear inference methods for estimating average treatment effect and heterogeneous treatment effect.</p>
+<p>After conducting the coarsened exact matching and imbalance checking, we can estimate the average treatment effect ATT and heterogeneous treatment effect HTE with statistical inference methods.</p>
+<p>Ordinal least square linear regression and weighted least square linear regression methods are provided for the ATT estimation, and the linear double machine learning method is provided for the HTE estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The dataframe after matching.</p></li>
+<li><p><strong>col_y</strong> (<em>str</em>) – The column name of dependent variable Y in your dataframe. If not specified, it would be “Y”.</p></li>
+<li><p><strong>col_t</strong> (<em>str</em>) – The column name of treatment variable T in your dataframe. If not specified, it would be “T”.</p></li>
+<li><p><strong>col_x</strong> (<em>list</em>) – <p>A list of column names of control variables X in your dataframe, which must be specified.</p>
+<p>Names of confounders should not be included in this list.</p>
+</p></li>
+<li><p><strong>confounder_cols</strong> (<em>list</em>) – A list of column names of confounders W in your dataframe, which must be specified.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="inference.linear_att">
+<span class="sig-name descname"><span class="pre">linear_att</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#inference.linear_att" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for estimating the ATT with the ordinal least square linear model.</p>
+<p>Return the estimated ATT and print out the model summary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="inference.weighted_linear_att">
+<span class="sig-name descname"><span class="pre">weighted_linear_att</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#inference.weighted_linear_att" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for estimating the ATT with the weighted least square linear model.</p>
+<p>Return the estimated ATT and print out the model summary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="inference.linear_dml_hte">
+<span class="sig-name descname"><span class="pre">linear_dml_hte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ols_linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#inference.linear_dml_hte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for estimating the HTE with the linear double machine learning method.</p>
+<p>Return the average treatment effect on treated ATT, conditional average treatment effect CATE, R2 score of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>final_model</strong> (<em>str</em>) – You can choose among [‘ols_linear’, ‘lasso’, ‘ridge’] as your second stage model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>float: conditional average treatment effect on treated CATE</p>
+<p>list: heterogeneous treatment effect HTE,</p>
+<p>float: R2 score of the model</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="api_balance.html"
+       title="previous chapter">← Balance Checking</a>
+  </li>
+  <li class="next">
+    <a href="api_sen.html"
+       title="next chapter">Sensitivity Analysis →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

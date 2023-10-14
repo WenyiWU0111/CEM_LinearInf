@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>Sensitivity Analysis</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Example" href="example.html" />
+  <link rel="prev" title="Inference" href="tuto_inf.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CEM-LinearInf</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#cem-linearinf-s-documentation"
+         class="nav-link ">
+         Catalogue
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#functions"
+         class="nav-link ">
+         ✏️ functions
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#contents"
+         class="nav-link ">
+         📖 contents
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#reference"
+         class="nav-link ">
+         ⭐️ reference
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#cem-linearinf-s-documentation">Catalogue</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#functions">✏️ functions</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#contents">📖 contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="usage.html" class="reference internal ">Usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorial.html" class="reference internal ">Tutorial</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="example.html" class="reference internal ">Example</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="api.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#reference">⭐️ reference</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="tutorial.html">Tutorial</a> &raquo;</li>
+    
+    <li>Sensitivity Analysis</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="tuto_inf.html"
+       title="previous chapter">← Inference</a>
+  </li>
+  <li class="next">
+    <a href="example.html"
+       title="next chapter">Example →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="sensitivity-analysis">
+<h1>Sensitivity Analysis<a class="headerlink" href="#sensitivity-analysis" title="Permalink to this heading">¶</a></h1>
+<p>When we conduct causal inference to the observational data, the most important assumption is that there is no unobserved confounding.
+Therefore, after finishing the treatment effect estimation, investigators are advised to conduct the sensitivity analysis to <strong>examine how fragile a result is against the possibility of unobserved confounders</strong> (<a class="reference internal" href="#sen-ref2"><span class="std std-ref">Cinelli, Hazlett, 2020</span></a>).
+In other words, we should examine how strong the effect of unobserved confounders should be to erase the treatment effect estimated.</p>
+<p>Two methods are provided in our package, including  <strong>Omitted variable bias</strong> based sensitivity analysis method (<a class="reference internal" href="#sen-ref2"><span class="std std-ref">Cinelli, Hazlett, 2020</span></a>) and <strong>Wilcoxon’s  signed rank test</strong> based sensitivity analysis method (<a class="reference internal" href="#sen-ref1"><span class="std std-ref">Rosenbaum, 2015</span></a>).</p>
+<section id="ovb">
+<h2>1️⃣ OVB<a class="headerlink" href="#ovb" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method can be used if your result variable <span class="math notranslate nohighlight">\(Y\)</span> is linearly dependent with <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</div>
+<p>The <strong>Omitted variable bias</strong> based sensitivity analysis result gives us the following informations, and all of these informations can be found in only one picture.</p>
+<ul class="simple">
+<li><p><strong>Robustness Value (RV)</strong>:</p></li>
+</ul>
+<p>The robustness value represents the threshold level of association that unobserved confounder must reach, both with the treatment and the outcome, in order to alter the conclusions of the research.</p>
+<p>The result figure provides a convenient reference point to assess the overall robustness of a coefficient to unobserved confounders. If the confounder’s association to the treatment <span class="math notranslate nohighlight">\(R_{Y\sim Z|T, X}^2\)</span> and to
+the outcome <span class="math notranslate nohighlight">\(R_{Z\sim T|X}^2\)</span> are both assumed to be less than the <span class="math notranslate nohighlight">\(RV\)</span>, then such confounders cannot “explain away” the observed effect.</p>
+<ul class="simple">
+<li><p><strong>Contour Line</strong>:</p></li>
+</ul>
+<p>The points on the same contour line has the same adjusted estimated ATT. The contour line helps us to know the value of the adjusted estimated <span class="math notranslate nohighlight">\(ATT\)</span> when <span class="math notranslate nohighlight">\(R_{Y\sim Z|T, X}^2 = a\)</span> and <span class="math notranslate nohighlight">\(R_{Z\sim T|X}^2 = b\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Bound the strength of the hidden confounder using observed covariate</strong>:</p></li>
+</ul>
+<p>We can choose an observed confounder <span class="math notranslate nohighlight">\(X_j\)</span> as a benchmark, and check the adjusted estimated <span class="math notranslate nohighlight">\(ATT\)</span> when</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\frac{R_{Y\sim Z|T, X_{-j}}^2}{R_{Y\sim X_j|T, X_{-j}}^2} = K_Y\\\frac{R_{T\sim Z|X_{-j}}^2}{R_{T\sim X_j|X_{-j}}^2} = K_T\end{aligned}\end{align} \]</div>
+<p><strong>Advantages</strong></p>
+<ul class="simple">
+<li><p>Having no parametric assumptions on the distribution of the confounder.</p></li>
+<li><p>Having simple sensitivity measures for routine reporting.</p></li>
+<li><p>Connecting sensitivity analysis to domain knowledge.</p></li>
+</ul>
+<p><strong>Limitations</strong></p>
+<ul class="simple">
+<li><p>Assuming that the unobservable confounder <span class="math notranslate nohighlight">\(X\)</span> is linearly dependent with result variable <span class="math notranslate nohighlight">\(Y\)</span> and treatment <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<p>Here we choose <span class="math notranslate nohighlight">\(X_1\)</span> as our benchmark. When <span class="math notranslate nohighlight">\(K_Y = K_T = 0.2\)</span>, the adjusted estimated <span class="math notranslate nohighlight">\(ATT\)</span> is 2.9722.</p>
+<p>When <span class="math notranslate nohighlight">\(R_{Y\sim Z|T, X}^2 = R_{Z\sim T|X}^2 = 0.6803\)</span>, the unobserved confounder <span class="math notranslate nohighlight">\(X\)</span> will “explain away” the observed effect.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">CEM_LinearInf.sensitivity_analysis</span> <span class="kn">import</span> <span class="n">ovb</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">my_cem</span><span class="o">.</span><span class="n">matched_df</span><span class="p">[[</span><span class="n">my_cem</span><span class="o">.</span><span class="n">col_t</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;X</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">my_cem</span><span class="o">.</span><span class="n">matched_df</span><span class="p">[</span><span class="n">my_cem</span><span class="o">.</span><span class="n">col_y</span><span class="p">])</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">WLS</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">weights</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">my_ovb</span> <span class="o">=</span> <span class="n">ovb</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">bench_variable</span><span class="o">=</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="n">k_t</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">k_y</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>  <span class="n">measure</span> <span class="o">=</span> <span class="s1">&#39;att&#39;</span><span class="p">)</span>
+<span class="n">my_ovb</span><span class="o">.</span><span class="n">plot_result</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/ovb.png"><img alt="smd_result" class="align-center" src="_images/ovb.png" style="width: 3.03529in; height: 2.97222in;" /></a>
+</section>
+<section id="wilcoxon-s-signed-rank-test">
+<h2>2️⃣ Wilcoxon’s  signed rank test<a class="headerlink" href="#wilcoxon-s-signed-rank-test" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is suitable for 1-1 matched dataset, which means that only 1 untreated sample are matched with each treated sample, and this can be achieved by setting <code class="docutils literal notranslate"><span class="pre">k2k_ratio</span> <span class="pre">=</span> <span class="pre">1</span></code> in the <code class="docutils literal notranslate"><span class="pre">match</span></code> step.</p>
+</div>
+<p>Wilcoxon’s signed rank test based sensitivity analysis imagines that in the population before matching, all samples are assigned to treatment or control independently with unknown probabilities. However, two samples  with the same observed confounders
+may nonetheless differ in terms of unobserved confounders, so that one sample has an odds of treatment that is up to <span class="math notranslate nohighlight">\(\Gamma ≥ 1\)</span> times greater than the odds for another sample.</p>
+<p>The sensitivity analysis asks how large the <span class="math notranslate nohighlight">\(\Gamma\)</span> should be to erase the treatment effect estimated.</p>
+<p>With <span class="math notranslate nohighlight">\(S\)</span> being the number of sample pairs and <span class="math notranslate nohighlight">\(W\)</span> being the sum of the ranks of the positive differences between pairs, we have</p>
+<div class="math notranslate nohighlight">
+\[\lambda = \frac{\Gamma}{1 + \Gamma}, \mu_{max} = \frac{\lambda S (S+1)}{2}, \mu_{min} = \frac{(1-\lambda) S (S+1)}{2}, \sigma ^2 = \frac{\lambda(1-\lambda)S(S+1)(2S+1)}{6}\]</div>
+<p><span class="math notranslate nohighlight">\(Z=\frac{X-\mu}{\sigma}\)</span> follows the standard normal distribution. If the corresponding <span class="math notranslate nohighlight">\(p-value\)</span> is greater than 0.05, than we can reject the null hypothesis that
+the treatment is randomly assigned, which means that the unobserved confounder erases the treatment effect estimated.</p>
+<p><strong>Example</strong></p>
+<p>In the following example, when <span class="math notranslate nohighlight">\(\Gamma = 4.25\)</span>, the upper bound of the <span class="math notranslate nohighlight">\(p-value\)</span>’s interval is greater than 0.05, which means that in this situation, we don’t have 95% confidence to reject the null hypothesis that the treatment is randomly assigned. In other words, when <span class="math notranslate nohighlight">\(\Gamma = 4.25\)</span> the estimated <span class="math notranslate nohighlight">\(ATT\)</span> will be explained away by unovserved confounders.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">CEM_LinearInf.sensitivity_analysis</span> <span class="kn">import</span> <span class="n">wilcoxon</span>
+
+<span class="n">my_sen</span> <span class="o">=</span> <span class="n">wilcoxon</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">my_cem_k2k</span><span class="o">.</span><span class="n">matched_df</span><span class="p">,</span> <span class="n">pair</span> <span class="o">=</span> <span class="n">my_cem_k2k</span><span class="o">.</span><span class="n">pair</span><span class="p">)</span>
+<span class="n">wilcoxon_df</span> <span class="o">=</span> <span class="n">my_sen</span><span class="o">.</span><span class="n">result</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">4.25</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>       lower_p  upper_p
+gamma
+1.00       0.0   0.0000
+2.00       0.0   0.0000
+3.00       0.0   0.0000
+4.00       0.0   0.0112
+4.25       0.0   0.0575
+5.00       0.0   0.6223
+The estimated ATT result is not reliable if there exists an unobservable confounder which makes the magnitude of probability
+that a single subject will be interfered with is 4.25 times higher than that of the other subject.
+</pre></div>
+</div>
+</section>
+<section id="reference">
+<h2>⭐️ Reference<a class="headerlink" href="#reference" title="Permalink to this heading">¶</a></h2>
+<ul class="simple" id="sen-ref2">
+<li><p>Cinelli, C., &amp; Hazlett, C. (2020). Making Sense of Sensitivity: Extending Omitted Variable Bias. Journal of the Royal Statistical Society Series B: Statistical Methodology, 82(1), 39–67. <a class="reference external" href="https://doi.org/10.1111/rssb.12348">https://doi.org/10.1111/rssb.12348</a></p></li>
+</ul>
+<ul class="simple" id="sen-ref3">
+<li><p>Cinelli, C., &amp; Ferwerda, J., &amp; Hazlett, C. (2020). “sensemakr: Sensitivity Analysis Tools for OLS in R and Stata.” <a class="reference external" href="https://www.researchgate.net/publication/340965014_sensemakr_Sensitivity_Analysis_Tools_for_OLS_in_R_and_Stata">https://www.researchgate.net/publication/340965014_sensemakr_Sensitivity_Analysis_Tools_for_OLS_in_R_and_Stata</a></p></li>
+</ul>
+<ul class="simple" id="sen-ref1">
+<li><p>Rosenbaum, P. R. (2005). Sensitivity analysis in observational studies. Encyclopedia of statistics in behavioral science.</p></li>
+</ul>
+<div class="toctree-wrapper compound" id="tuto-sen">
+</div>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="tuto_inf.html"
+       title="previous chapter">← Inference</a>
+  </li>
+  <li class="next">
+    <a href="example.html"
+       title="next chapter">Example →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, WenyiWU.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>
