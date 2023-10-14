@@ -1,5 +1,5 @@
 Balance Checking
-----
+-------------------
 
 .. py:class:: CEM_LinearInf.balance(df_match: pd.DataFrame, df_all: pd.DataFrame, confounder_cols: list, cont_confounder_cols: list, col_y: str = 'Y', col_t: str = 'T')
 
