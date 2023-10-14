@@ -1,0 +1,360 @@
+API Reference
+=====
+
+cem 
+----
+
+
+.. py:class:: CEM_LinearInf.cem(df: pd.DataFrame, confounder_cols: list, cont_confounder_cols: list, col_y: str = 'Y', col_t: str = 'T')
+
+   Class of Coarsened Exact Matching (CEM).
+
+   CEM is a data preprocessing algorithm in causal inference that has broad applicability to observational data.
+   With CEM, you can construct your observational data into 'quasi' experimental data easily, mitigating the model dependency, bias, and inefficiency of your estimation of the treatment effect (King and Zeng 2006; Ho, Imai, King, and Stuart 2007; Iacus et al. 2008).
+
+   :param pd.Dataframe df: The dataframe you want to summarize.
+
+   :param list confounder_cols: The column names of confounders among all variables X.
+
+   :param list cont_confounder_cols: The column names of all continuous variables among confounders.
+
+   :param string col_y: The column name of result Y in your dataframe. If not specified, it would be "Y".
+
+   :param string col_t: The column name of treatment T in your dataframe. If not specified, it would be "T".
+
+   .. method:: summary()
+      
+      Method for generating the summary of data, return the descriptive statistics result of the dataframe
+      and the T-test result of Experimental group Y and Control group Y.
+
+   .. method:: cut(col: pd.Series, func: str, param: int or list = None)
+
+      Method for cutting a continuous confounder X into discrete bins.
+
+      :param pd.Series col: Continuous confounder X to be coarsened.
+
+      :param str func: Cutting function to be used. The following functions can be chosen.
+
+            'cut': Bin values into discrete intervals with the same length.
+            
+            'qcut': Discretize variable into equal-sized buckets based on rank or based on sample quantiles.
+            
+            'struges': Bin values into discrete intervals with the same length k according to the Sturges' rule.
+
+      :param int or list (optional) param:
+            
+            When the method is 'cut', it's a number of bins or a list of bins' edges;
+            
+            When the method is 'qcut', it's a number of quantiles or a list of quantiles, e.g. [0, .25, .5, .75, 1.] for quartiles.
+            
+            When the method is 'struges', there's no need to specify the param.
+
+      :returns: pd.Series: Coarsened confounder X.
+
+   .. method:: coarsening(self, coarsen_df: pd.DataFrame = None, cont_confounder_cols: list = None, schema: dict = {})
+
+      Coarsen your data based on the specified coarsen schema. If the coarsen schema is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges' rule.
+
+      :param pd.DataFrame coarsen_df: DataFrame to be coarsened.
+
+      :param list cont_confounder_cols: Column names of continuous confounders of the dataframe to be coarsened.
+
+      :param dict chema: The dictionary specifing what coarsening method you want to use on each continuous confounder X.
+            
+            If it is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges' rule.
+
+      :returns: pd.DataFrame: Dataframe with coarsened confounders X.
+
+   .. method:: weight(self, strata_T: pd.Series, all_T: pd.Series) 
+
+      Method of computing weights for each observation.
+
+      :param pd.Series strata_T: The treatment T of samples in one strata.
+
+      :param  pd.Series all_T: The treatment T of all the matched samples.
+
+      :returns: pd.Series: Weights of samples in the input strata.
+
+   .. method:: match(self, schema: dict = {}, k2k_ratio: int = 0, dist: str = 'euclidean', _print: bool = True)
+
+      Method for perform coarsened exact matching using the specified coarsening schema and return the dataframe with weights for each observation.
+      
+      If the coarsen schema is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges' rule.
+
+      :param dict schema: 
+            
+            The dictionary specifing what coarsening method you want to use on each continuous confounder X.
+            
+            If it is not specified, the default method is binning values into discrete intervals with the same length k according to the Sturges' rule.
+
+      :param int k2k_ratio: 
+            
+            The ratio of # control samples / # treatment samples when we conduct k to k matching.
+            
+            If 'k2k_ratio' is 0, we don't conduct k to k matching.
+            
+            Otherwise, all treatment samples in each strata will be matched with k nearest control samples.
+
+      :param str dist: The measure of distance when conducting k to k matching.
+            
+            You can choose among ['euclidean', 'mahalanobis;, 'psm']. The default one is 'euclidean'.
+
+      :param bool _print: Whether to print the matching result.
+
+      :returns: pd.DataFrame: The matched dataframe.
+
+   .. method:: k2k_match(self, df: pd.DataFrame, confounder_cols: list, group: list, dist: str, k2k_ratio: int = 1)
+
+      Method for performing k to k coarsened exact matching using the specified distance measure, and return the dataframe with weights for each observation.
+
+      :param pd.DataFrame df: 
+            The coarsened dataframe to be matched.
+
+      :param  list confounder_cols: 
+            The column names of all continuous variables among confounders.
+
+      :param list group: 
+            The column names of variables used for grouping.
+            
+            It's equivalent to dis_confounder_cols + [\'coarsen_\' + name for name in cont_confounder_cols].
+
+      :param str dist: 
+            The measure of distance when conducting k to k matching.
+            
+            You can choose among ['euclidean', 'mahalanobis;, 'psm']. The default one is 'euclidean'.
+
+      :param int k2k_ratio: 
+            The ratio of (# control samples / # treatment samples) when we conduct k to k matching.
+            
+            All treatment samples in each strata will be matched with k nearest control samples.
+            
+            The default ratio is 1.
+
+      :returns: 
+         
+         pd.DataFrame: The matched dataframe.
+         
+         dict: A dictionary of pair index, indicating which control sample is paired with each experimantal sample.
+
+   .. method:: tunning_schema(self, step: int = 4)
+
+      Method for fine-tunning continuous confounders' binning schema automatically. The optimization objective is to have a smaller L1 score conditional on a relatively large matched sample size.
+
+      :param int step: The step when tunning the number of bins.
+            
+         E.X. When 'step' = 4, the function will calculate all L1 scores when the number of bins equals [4, 8, ..., 1 + log2(n)].
+
+      :returns: 
+      
+         pd.DataFrame: A dataframe recording L1 scores of each schemas.
+         
+         dict: The optimal schema dictionary.
+
+.. py:class:: CEM_LinearInf.balance(df_match: pd.DataFrame, df_all: pd.DataFrame, confounder_cols: list, cont_confounder_cols: list, col_y: str = 'Y', col_t: str = 'T')
+
+   Class of balance assessment for the matched data.
+
+   When we finish the coarsened exact matching, it is necessary to evaluate the quality of the matching with imbalance checking methods. 
+   
+   When the covariate balance is achieved, the resulting effect estimate is less sensitive to model misspecification and ideally close to true treatment effect (Greifer, 2023).
+
+   The imbalance checking methods provided include:
+        'L1': Calculate and return the L1 imbaance score.
+
+        'smd': Print the standardized mean difference summary table and plots of confounders.
+
+        'ks': Plot Kolmogorov-Smirnov Statistics of confounders before and after matching.
+
+        'density': Return density plots of confounders before and after matching.
+
+        'ecdf': Return empirical cumulative density plots of confounders before and after matching.
+
+
+   :param pd.Dataframe df_match: 
+        The dataframe after matching.
+
+   :param pd.Dataframe df_all: 
+        The original dataframe before matching.
+
+   :param list confounder_cols: 
+        The column names of confounders among all variables X.
+
+   :param list cont_confounder_cols: 
+        The column names of all continuous variables among confounders.
+
+   :param str col_y: 
+        The column name of result Y in your dataframe. If not specified, it would be "Y".
+
+   :param str col_t: 
+        The column name of treatment T in your dataframe. If not specified, it would be "T".
+
+   .. method:: balance_assessing(self, method: str = 'smd', threshold: list = [0.1, 2], _print: bool = True)
+      
+      Method for generating the imbalance assessing result.
+
+      :param str method: 
+            The method to be used for balance assessment. If it's not specified, the default method is 'smd'.
+
+               'L1': Calculate and return the L1 imbaance score.
+
+               'smd': Print the standardized mean difference summary table and plots of confounders.
+
+               'ks': Plot Kolmogorov-Smirnov Statistics of confounders before and after matching.
+
+               'density': Return density plots of confounders before and after matching.
+
+               'ecdf': Return empirical cumulative density plots of confounders before and after matching.
+
+               'all': Implement all the methods above.
+
+      :param list threshold: 
+            When you choose 'smd' to assess the balance, you can set the balance thresholds for smd and variance ratio.
+
+            If it's not specified, the default thresholds are 0.1 and 2 for standardized mean difference and variance ratio respectively.
+
+      :param bool _print: 
+            Whether to print the L1 score.
+
+
+.. py:class:: inference(df: pd.DataFrame, col_y: str = 'Y', col_t: str = 'T', col_x: list = None, confounder_cols: list = None)
+
+   Class of linear inference methods for estimating average treatment effect and heterogeneous treatment effect.
+
+   After conducting the coarsened exact matching and imbalance checking, we can estimate the average treatment effect ATT and heterogeneous treatment effect HTE with statistical inference methods.
+
+   Ordinal least square linear regression and weighted least square linear regression methods are provided for the ATT estimation, and the linear double machine learning method is provided for the HTE estimation.
+   
+   :param pd.DataFrame df: 
+        The dataframe after matching.
+
+   :param str col_y: 
+        The column name of dependent variable Y in your dataframe. If not specified, it would be "Y".
+
+   :param str col_t: 
+        The column name of treatment variable T in your dataframe. If not specified, it would be "T".
+
+   :param list col_x: 
+        A list of column names of control variables X in your dataframe, which must be specified.
+        
+        Names of confounders should not be included in this list.
+
+   :param list confounder_cols: 
+        A list of column names of confounders W in your dataframe, which must be specified.
+
+   .. method:: linear_att()
+
+      Method for estimating the ATT with the ordinal least square linear model.
+      
+      Return the estimated ATT and print out the model summary.
+
+   .. method:: weighted_linear_att()
+
+      Method for estimating the ATT with the weighted least square linear model.
+      
+      Return the estimated ATT and print out the model summary.
+
+   .. method:: linear_dml_hte(self, final_model: str = 'ols_linear')
+      
+      Method for estimating the HTE with the linear double machine learning method.
+      
+      Return the average treatment effect on treated ATT, conditional average treatment effect CATE, R2 score of the model.
+
+      :param str final_model: You can choose among ['ols_linear', 'lasso', 'ridge'] as your second stage model.
+
+      :returns:
+       float: conditional average treatment effect on treated CATE
+       
+       list: heterogeneous treatment effect HTE, 
+       
+       float: R2 score of the model
+
+.. py:class:: wilcoxon(df: pd.DataFrame, pair: dict, col_y: str = 'Y')
+
+   Class of wilcoxon's signed rank test based sensitivity analysis methods.
+
+   When we conduct causal inference to the observational data, the most important assumption is that there is no unobserved confounding.
+   
+   Therefore, after finishing the treatment effect estimation, investigators are advised to conduct the sensitivity analysis to examine how fragile a result is against the possibility of unobserved confounders (Cinelli, Hazlett, 2019).
+   
+   In other words, we should examine how strong the effect of unobserved confounders should be to erase the treatment effect estimated.
+
+   Wilcoxon's signed rank test based sensitivity analysis method is provided in this class. Please be noted that you can only use this method if your data is 1-1 matched.
+
+   :param pd.DataFrame df: 
+        The matched dataframe.
+
+   :param dict pair: 
+        A dictionary of pair index, indicating which control sample is paired with each experimantal sample.
+
+   :param str col_y: 
+        The column name of dependent variable Y in your dataframe. If not specified, it would be "Y".
+
+   .. method:: result(self, gamma_list: list)
+
+      Method to conduct the wilcoxon's signed rank test based sensitivity analysis.
+
+      :param gamma_list: list
+         A list of gamma values you want to test. Gamma refers to the possibility a sample will be treated compared to its pair sample.
+
+      :returns:
+         pd.DataFrame: A result dataframe including p-values under each gamma value.
+
+.. py:class:: ovb()
+
+   Class of omitted variable bias based sensitivity analysis methods.
+
+   When we conduct causal inference to the observational data, the most important assumption is that there is no unobserved confounding.
+   
+   Therefore, after finishing the treatment effect estimation, investigators are advised to conduct the sensitivity analysis to examine how fragile a result is against the possibility of unobserved confounders (Cinelli, Hazlett, 2019).
+   
+   In other words, we should examine how strong the effect of unobserved confounders should be to erase the treatment effect estimated.
+
+   Omitted variable bias based sensitivity analysis method is provided in this class. Please be noted that you can only use this method in linear case.
+
+   :param str col_t: 
+        The column name of treatment variable T in your dataframe. If not specified, it would be "T".
+
+   :param model:
+        The regression model before fitted.
+
+   :param str bench_variable: 
+        The confounder you choose as a benchmark.
+
+   :param int or list k_t: 
+        R2 between treatment and the unobservable confounder / R2 between treatment and the benchmark confounder
+        You can interpret as how many times the correlation between the unobservable confounder and the treatment is to
+        that between the benchmark confounder and the treatment. The default value is 1.
+
+   :param int or list k_y: 
+        R2 between result y and the unobservable confounder / R2 between result y and the benchmark confounder
+        You can interpret as how many times the correlation between the unobservable confounder and the result is to
+        that between the benchmark confounder and the result. The default value is 1.
+
+   :param int threshold: 
+        The threshold level in the result plot. The default value is 0.
+
+   :param str measure: 
+        The measure you want to shown in the result plot. You can choose between 'att' and 't'. The default measure is 'att'.
+        'att': The estimated average treatment effect.
+        't': The t-value of the estimated average treatment effect.
+
+   .. method:: plot_result(self, lim_x: float = 0.8, lim_y: float = 0.8, threshold: int or float = 0)
+      
+      Method for omiited variable bias based sensitivity analysis.
+      
+      The result plot presents how the averaged treatment effect or the t-value will change with different values of R2 between unobservable confounder and T and that between unobservable confounder and Y.
+
+      :param float lim_x: 
+         x-axis limit of the plot.
+
+      :param float lim_y: 
+         y-axis limit of the plot.
+
+Installation
+------------
+
+To use CEM_LinearInf, first install it using pip:
+
+.. code-block:: console
+
+   (.venv) $ pip install CEM_LinearInf
