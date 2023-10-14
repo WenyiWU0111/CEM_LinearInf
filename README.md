@@ -27,7 +27,7 @@ pip install git+
 
 ## 📖 Examples and notebooks
 
-- [CEM Notebook Example - Simulated Linear Dataset]()
+- [CEM Notebook Example - Simulated Linear Dataset](CEM_Notebook_Example_Lalonde_Dataset.ipynb)
 - [CEM Notebook Example - Lalonde Dataset]()
 - [Tutorial]()
 
