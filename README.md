@@ -9,7 +9,7 @@ Please check out the following sections for further information, including how t
 
 - Documentation: [https://cem-linearinf.readthedocs.io/en/latest/](https://cem-linearinf.readthedocs.io/en/latest/)
 - GitHub repo: [https://github.com/WenyiWU0111/CEM_LinearInf.git](https://github.com/WenyiWU0111/CEM_LinearInf.git)
-- PyPi: []()
+- PyPi: [https://pypi.org/project/CEM-LinearInf/0.0.1/](https://pypi.org/project/CEM-LinearInf/0.0.1/)
 - Open Source: [MIT license](https://opensource.org/licenses/MIT)
 
 ## 💡 Installation
