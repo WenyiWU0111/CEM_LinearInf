@@ -19,6 +19,5 @@ setuptools.setup(
     python_requires='>=3.6',                # Minimum version requirement of the package
     #py_modules=["CEM_LinearInf"],             # Name of the python package
     #package_dir={'':'CEM_LinearInf'},     # Directory of the source code of the package
-    install_requires=['numpy', 'pandas', 'scipy>=1.11.1', 'statsmodels', 'matplotlib', 'seaborn']                     # Install other dependencies if any
+    install_requires=['numpy', 'pandas', 'scipy>=1.11.1', 'scikit-learn', 'statsmodels', 'matplotlib', 'seaborn']                     # Install other dependencies if any
 )
-#'scikit-learn', 
